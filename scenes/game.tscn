@@ -1,0 +1,440 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4gkqp7c0ukwq"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_8wr67"]
+[ext_resource type="PackedScene" uid="uid://cl3n5w0e2p10a" path="res://scenes/env_block.tscn" id="2_kebop"]
+[ext_resource type="PackedScene" uid="uid://cqktlstk2ps4d" path="res://scenes/arm.tscn" id="2_n7k0m"]
+[ext_resource type="PackedScene" uid="uid://ndrv8hymvque" path="res://scenes/env_cross.tscn" id="3_tknvh"]
+[ext_resource type="PackedScene" uid="uid://drprdhfyla3si" path="res://scenes/goal_check_in.tscn" id="4_nebgr"]
+[ext_resource type="PackedScene" uid="uid://c6maugua0ll51" path="res://scenes/env_arm.tscn" id="6_ij33n"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="7_o5m3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtv8q"]
+size = Vector2(2817, 100)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_8wr67")
+
+[node name="Vaina" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Vaina"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Vaina"]
+offset_right = 1148.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 130
+text = "Tu puntaje fue de:"
+
+[node name="Label2" type="Label" parent="Vaina"]
+offset_left = 297.0
+offset_top = 212.0
+offset_right = 882.0
+offset_bottom = 409.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+script = ExtResource("7_o5m3v")
+
+[node name="Button" type="Button" parent="Vaina"]
+offset_left = 35.0
+offset_top = 470.0
+offset_right = 390.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 59
+text = "De nuevo"
+
+[node name="Button2" type="Button" parent="Vaina"]
+offset_left = 733.0
+offset_top = 470.0
+offset_right = 1088.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 59
+text = "Cerrar"
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Llena" type="ColorRect" parent="Environment"]
+offset_left = -413.0
+offset_top = -675.0
+offset_right = -373.0
+offset_bottom = -635.0
+scale = Vector2(70.521, 35.1006)
+color = Color(0.572549, 1, 1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/Llena"]
+position = Vector2(12.9607, -0.769218)
+polygon = PackedVector2Array(7.91254, 23.3329, 7.69983, 23.9882, 7.55803, 23.6463, 7.57221, 24.558, 7.98344, 24.558, 7.82746, 24.3016, 8.02598, 23.6463)
+
+[node name="env_block" parent="Environment" instance=ExtResource("2_kebop")]
+position = Vector2(395, 268)
+
+[node name="RigidBody2D" parent="Environment" instance=ExtResource("3_tknvh")]
+position = Vector2(207, 254)
+
+[node name="env_cross" parent="Environment" instance=ExtResource("2_kebop")]
+position = Vector2(1306, 272)
+
+[node name="env_wea" parent="Environment" instance=ExtResource("6_ij33n")]
+position = Vector2(-5, 319)
+
+[node name="Ground" type="StaticBody2D" parent="Environment"]
+position = Vector2(1007, 468)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gtv8q")
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/Ground"]
+position = Vector2(0, 217)
+scale = Vector2(1.44, 5.32)
+color = Color(0.203922, 0.376471, 0.235294, 1)
+polygon = PackedVector2Array(-1000, 50, -1000, -50, 1000, -50, 1000, 50)
+
+[node name="top" type="StaticBody2D" parent="Environment"]
+position = Vector2(1007, -494)
+collision_layer = 8
+collision_mask = 8
+collision_priority = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/top"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("RectangleShape2D_gtv8q")
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/top"]
+polygon = PackedVector2Array(-1000, 50, -1000, -50, 1000, -50, 1000, 50)
+
+[node name="Goal" type="Node2D" parent="Environment"]
+
+[node name="GoalCheckIn14" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 358)
+
+[node name="GoalCheckIn11" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 358)
+
+[node name="GoalCheckIn10" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 378)
+
+[node name="GoalCheckIn2" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 258)
+
+[node name="GoalCheckIn13" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 338)
+
+[node name="GoalCheckIn16" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 318)
+
+[node name="GoalCheckIn15" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 318)
+
+[node name="GoalCheckIn18" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 298)
+
+[node name="GoalCheckIn20" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 278)
+
+[node name="GoalCheckIn19" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 138)
+
+[node name="GoalCheckIn22" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 298)
+
+[node name="GoalCheckIn24" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 358)
+
+[node name="GoalCheckIn23" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 278)
+
+[node name="GoalCheckIn25" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 298)
+
+[node name="GoalCheckIn21" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 158)
+
+[node name="GoalCheckIn17" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 338)
+
+[node name="GoalCheckIn12" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 378)
+
+[node name="GoalCheckIn" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 218)
+
+[node name="GoalCheckIn8" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 198)
+
+[node name="GoalCheckIn7" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 178)
+
+[node name="GoalCheckIn6" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 318)
+
+[node name="GoalCheckIn5" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 338)
+
+[node name="GoalCheckIn4" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(836, 398)
+
+[node name="GoalCheckIn3" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 238)
+
+[node name="GoalCheckIn9" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 378)
+
+[node name="GoalCheckIn26" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(856, 398)
+
+[node name="GoalCheckIn27" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 398)
+
+[node name="GoalCheckIn28" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(876, 278)
+
+[node name="GoalCheckIn32" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 398)
+
+[node name="GoalCheckIn34" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 318)
+
+[node name="GoalCheckIn35" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 318)
+
+[node name="GoalCheckIn36" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 298)
+
+[node name="GoalCheckIn37" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 278)
+
+[node name="GoalCheckIn38" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 278)
+
+[node name="GoalCheckIn39" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 298)
+
+[node name="GoalCheckIn41" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 278)
+
+[node name="GoalCheckIn42" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 298)
+
+[node name="GoalCheckIn43" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 298)
+
+[node name="GoalCheckIn46" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 358)
+
+[node name="GoalCheckIn47" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 338)
+
+[node name="GoalCheckIn48" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 318)
+
+[node name="GoalCheckIn49" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 318)
+
+[node name="GoalCheckIn52" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(896, 378)
+
+[node name="GoalCheckIn56" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 278)
+
+[node name="GoalCheckIn57" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 358)
+
+[node name="GoalCheckIn58" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 358)
+
+[node name="GoalCheckIn59" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 378)
+
+[node name="GoalCheckIn60" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 398)
+
+[node name="GoalCheckIn61" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 338)
+
+[node name="GoalCheckIn62" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 318)
+
+[node name="GoalCheckIn63" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 318)
+
+[node name="GoalCheckIn64" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 298)
+
+[node name="GoalCheckIn65" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 278)
+
+[node name="GoalCheckIn66" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 278)
+
+[node name="GoalCheckIn67" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 298)
+
+[node name="GoalCheckIn68" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 358)
+
+[node name="GoalCheckIn69" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 278)
+
+[node name="GoalCheckIn70" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 298)
+
+[node name="GoalCheckIn71" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 298)
+
+[node name="GoalCheckIn72" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 338)
+
+[node name="GoalCheckIn73" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 378)
+
+[node name="GoalCheckIn74" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 358)
+
+[node name="GoalCheckIn75" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 338)
+
+[node name="GoalCheckIn76" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 318)
+
+[node name="GoalCheckIn77" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 318)
+
+[node name="GoalCheckIn78" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 338)
+
+[node name="GoalCheckIn79" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(996, 398)
+
+[node name="GoalCheckIn80" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 378)
+
+[node name="GoalCheckIn81" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 378)
+
+[node name="GoalCheckIn82" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1016, 398)
+
+[node name="GoalCheckIn83" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 398)
+
+[node name="GoalCheckIn84" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(1036, 278)
+
+[node name="GoalCheckIn85" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 218)
+
+[node name="GoalCheckIn86" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 218)
+
+[node name="GoalCheckIn87" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 238)
+
+[node name="GoalCheckIn88" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 258)
+
+[node name="GoalCheckIn89" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 198)
+
+[node name="GoalCheckIn90" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 178)
+
+[node name="GoalCheckIn91" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 178)
+
+[node name="GoalCheckIn92" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 158)
+
+[node name="GoalCheckIn93" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 138)
+
+[node name="GoalCheckIn94" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 138)
+
+[node name="GoalCheckIn95" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 158)
+
+[node name="GoalCheckIn96" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 218)
+
+[node name="GoalCheckIn97" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 138)
+
+[node name="GoalCheckIn98" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 158)
+
+[node name="GoalCheckIn99" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 158)
+
+[node name="GoalCheckIn100" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 198)
+
+[node name="GoalCheckIn101" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 238)
+
+[node name="GoalCheckIn102" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 218)
+
+[node name="GoalCheckIn103" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 198)
+
+[node name="GoalCheckIn104" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 178)
+
+[node name="GoalCheckIn105" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 178)
+
+[node name="GoalCheckIn106" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 198)
+
+[node name="GoalCheckIn107" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(916, 258)
+
+[node name="GoalCheckIn108" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(976, 238)
+
+[node name="GoalCheckIn109" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 238)
+
+[node name="GoalCheckIn110" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(936, 258)
+
+[node name="GoalCheckIn111" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 258)
+
+[node name="GoalCheckIn112" parent="Environment/Goal" instance=ExtResource("4_nebgr")]
+position = Vector2(956, 138)
+
+[node name="Line2D" type="Line2D" parent="Environment/Goal"]
+position = Vector2(249, -91)
+points = PackedVector2Array(587, 509, 587, 369, 647, 369, 647, 229, 747, 229, 747, 369, 807, 369, 807, 509)
+
+[node name="Line2D2" type="Line2D" parent="Environment/Goal"]
+position = Vector2(249, -91)
+points = PackedVector2Array(667, 509, 667, 429, 727, 429, 727, 509)
+
+[node name="Label" type="Label" parent="Environment/Goal"]
+offset_left = 992.0
+offset_top = 24.0
+offset_right = 1142.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Llena esta area 
+con bloques!"
+
+[node name="Arm" parent="." instance=ExtResource("2_n7k0m")]
+process_mode = 3
+position = Vector2(617, -113)
+
+[connection signal="pressed" from="Vaina/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Vaina/Button2" to="." method="_on_button_2_pressed"]

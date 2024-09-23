@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cex1prh5xwt1r"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_w4uyw"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4uyw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 16.0
+offset_right = 991.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "Eye want that"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 381.0
+offset_right = 538.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 100
+text = "Jugar"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 255.0
+offset_right = 1045.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "José Ignacio Alegría
+Assets propios
+Juego donde armas cosas :)
+
+Flechas para mover la garra
+Z para abrir, X para cerrar
+P para terminar la sesión"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

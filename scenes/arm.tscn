@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqktlstk2ps4d"]
+
+[ext_resource type="PackedScene" uid="uid://c2ddn3rwffmmv" path="res://scenes/link.tscn" id="1_jp3ct"]
+[ext_resource type="Script" path="res://scripts/percentageUI.gd" id="2_427af"]
+[ext_resource type="Texture2D" uid="uid://cqt7cl3akkmar" path="res://assets/icon.svg" id="2_co4g5"]
+[ext_resource type="Script" path="res://scripts/arm.gd" id="2_ndyqo"]
+[ext_resource type="PackedScene" uid="uid://bqhkargbphpk" path="res://scenes/GrabbyL.tscn" id="4_fidaq"]
+[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/GrabbyR.tscn" id="5_v4twn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbe27"]
+
+[node name="Arm" type="Node2D"]
+position = Vector2(-2, -180)
+
+[node name="arm-1" type="PinJoint2D" parent="."]
+position = Vector2(1, -9)
+node_a = NodePath("../1")
+node_b = NodePath("../arm")
+
+[node name="arm" type="CharacterBody2D" parent="."]
+position = Vector2(3, -66)
+scale = Vector2(57.9017, 16.1973)
+collision_layer = 8
+collision_mask = 8
+input_pickable = true
+motion_mode = 1
+script = ExtResource("2_ndyqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="arm"]
+scale = Vector2(0.0147217, 0.0538435)
+texture = ExtResource("2_co4g5")
+
+[node name="Camera2D" type="Camera2D" parent="arm"]
+position = Vector2(-0.155436, 23.2137)
+rotation = 3.14159
+scale = Vector2(2.28494, 11.5801)
+limit_top = -290
+
+[node name="Label" type="Label" parent="arm/Camera2D"]
+layout_direction = 2
+offset_left = 4.17981
+offset_top = 1.62609
+offset_right = 378.18
+offset_bottom = 144.626
+rotation = -3.14159
+scale = Vector2(0.01, 0.01)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+script = ExtResource("2_427af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arm"]
+scale = Vector2(0.088015, 0.328358)
+shape = SubResource("RectangleShape2D_qbe27")
+
+[node name="1" parent="." instance=ExtResource("1_jp3ct")]
+position = Vector2(0, 25)
+
+[node name="1-2" type="PinJoint2D" parent="."]
+position = Vector2(1, 58)
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+
+[node name="2" parent="." instance=ExtResource("1_jp3ct")]
+position = Vector2(0, 93)
+
+[node name="2-3" type="PinJoint2D" parent="."]
+position = Vector2(1, 127)
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+
+[node name="3" parent="." instance=ExtResource("1_jp3ct")]
+position = Vector2(0, 161)
+
+[node name="3-4" type="PinJoint2D" parent="."]
+position = Vector2(1, 196)
+node_a = NodePath("../3")
+node_b = NodePath("../4")
+
+[node name="4" parent="." instance=ExtResource("1_jp3ct")]
+position = Vector2(0, 230)
+
+[node name="4-5" type="PinJoint2D" parent="."]
+position = Vector2(1, 264)
+node_a = NodePath("../4")
+node_b = NodePath("../5")
+
+[node name="5" parent="." instance=ExtResource("1_jp3ct")]
+position = Vector2(0, 298)
+
+[node name="grabbyL" parent="." instance=ExtResource("4_fidaq")]
+position = Vector2(-17, 323)
+
+[node name="5-grabby" type="PinJoint2D" parent="."]
+position = Vector2(-18, 324)
+node_a = NodePath("../5")
+node_b = NodePath("../grabbyL")
+
+[node name="5-grabby2" type="PinJoint2D" parent="."]
+position = Vector2(18, 324)
+node_a = NodePath("../5")
+node_b = NodePath("../GrabbyR")
+
+[node name="GrabbyR" parent="." instance=ExtResource("5_v4twn")]
+position = Vector2(18, 324)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
