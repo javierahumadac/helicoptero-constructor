@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ddn3rwffmmv"]
+
+[ext_resource type="Texture2D" uid="uid://dkf7ogtv1er8" path="res://assets/ball.png" id="1_ranpc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k78kx"]
+radius = 17.0074
+
+[node name="RigidBody2D" type="RigidBody2D"]
+linear_damp_mode = 1
+linear_damp = 3.915
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_k78kx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.35, 1)
+scale = Vector2(0.211959, 0.213699)
+texture = ExtResource("1_ranpc")
+metadata/_edit_group_ = true

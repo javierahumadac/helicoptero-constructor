@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0vf0msddh6x0"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_x0eoe"]
+[ext_resource type="Texture2D" uid="uid://dc1hlk6gypjsm" path="res://assets/logo.png" id="2_dvdog"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0eoe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 368.0
+offset_right = 1152.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 60
+text = "El helicoptero que construye
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 512.0
+offset_right = 560.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 70
+text = "JUGAR!"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 512.0
+offset_right = 1104.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 70
+text = "Controles"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(592, 208)
+texture = ExtResource("2_dvdog")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 448.0
+offset_right = 1071.0
+offset_bottom = 471.0
+text = "Hecho por Javier Ahumada"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

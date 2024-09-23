@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dae80gfytomow"]
+
+[ext_resource type="Script" path="res://menucontroles.gd" id="1_85500"]
+[ext_resource type="Texture2D" uid="uid://b0lobwk5sugf0" path="res://assets/controles-jugado1.png" id="1_ydp7i"]
+[ext_resource type="Texture2D" uid="uid://gh1qktta0gfx" path="res://assets/controles-jugado2.png" id="2_2r6rs"]
+[ext_resource type="Texture2D" uid="uid://dle4xxf52g0x3" path="res://assets/controles-mando.png" id="3_limjn"]
+
+[node name="menucontroles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85500")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="Controles-jugado1" type="Sprite2D" parent="."]
+position = Vector2(297, 178.813)
+scale = Vector2(0.840362, 1.16204)
+texture = ExtResource("1_ydp7i")
+
+[node name="Controles-jugado2" type="Sprite2D" parent="."]
+position = Vector2(865, 177.625)
+scale = Vector2(0.864458, 1.17181)
+texture = ExtResource("2_2r6rs")
+
+[node name="Controles-mando" type="Sprite2D" parent="."]
+position = Vector2(736, 464)
+texture = ExtResource("3_limjn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 464.0
+offset_right = 352.0
+offset_bottom = 555.0
+theme_override_font_sizes/font_size = 60
+text = "Volver"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

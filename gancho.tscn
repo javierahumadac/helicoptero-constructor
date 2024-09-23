@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dapoeojmtqva3"]
+
+[ext_resource type="Script" path="res://nuevogancho.gd" id="1_qhxov"]
+[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://box.png" id="2_b2r8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m36h3"]
+size = Vector2(64, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5vv7"]
+size = Vector2(12, 2)
+
+[node name="Gancho" type="RigidBody2D"]
+collision_layer = 8
+mass = 0.05
+script = ExtResource("1_qhxov")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-7.15256e-07, -4)
+scale = Vector2(0.64, 0.24)
+texture = ExtResource("2_b2r8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_m36h3")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-24, 8)
+node_a = NodePath("..")
+node_b = NodePath("..")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(24, 8)
+node_a = NodePath("..")
+node_b = NodePath("..")
+
+[node name="Catch Zone" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch Zone"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_d5vv7")
+debug_color = Color(0.906287, 0.238013, 0.481607, 0.42)
+
+[connection signal="body_shape_entered" from="Catch Zone" to="." method="_on_catch_zone_body_shape_entered"]

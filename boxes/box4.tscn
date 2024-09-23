@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpbfye1gahvt6"]
+
+[ext_resource type="Script" path="res://boxes/box.gd" id="1_wl8uk"]
+[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://box.png" id="2_a4sk3"]
+
+[node name="Box" type="RigidBody2D" groups=["Caja"]]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 5
+mass = 0.1
+center_of_mass_mode = 1
+center_of_mass = Vector2(64, 0)
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_wl8uk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(48, 16)
+scale = Vector2(0.96, 0.32)
+texture = ExtResource("2_a4sk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(33.3333, -100)
+scale = Vector2(0.333333, 1)
+texture = ExtResource("2_a4sk3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, 0, 64, 0, 64, -32, 96, -32, 96, 32, 64, 32, 0, 32)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://oa3urvdc3d4y"]
+
+[ext_resource type="Script" path="res://boxes/box.gd" id="1_4hpnh"]
+[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://box.png" id="2_u77wv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqw3p"]
+size = Vector2(64, 63.752)
+
+[node name="Box" type="RigidBody2D" groups=["Caja"]]
+position = Vector2(32, 32)
+disable_mode = 2
+collision_layer = 4
+collision_mask = 5
+mass = 0.2
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_4hpnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.941176, 0.941176, 0.0313726, 1)
+position = Vector2(-7.62939e-06, 2.86102e-06)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("2_u77wv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_sqw3p")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqhkargbphpk"]
+
+[ext_resource type="Script" path="res://scenes/helicoptero/GrabbyL.gd" id="1_xq2jn"]
+
+[node name="GrabbyL" type="RigidBody2D"]
+collision_layer = 7
+collision_mask = 7
+mass = 0.1
+linear_damp = 1.5
+angular_damp = 1.5
+script = ExtResource("1_xq2jn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-17, 45)
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(0, 1, 6, 16, 0, 16, -6, 1, 0, -15, 5.66667, -15)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-17, 48)
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(0, 0, 6, 15, 0, 15, -6, 0, 0, -16, 5.66667, -16)
