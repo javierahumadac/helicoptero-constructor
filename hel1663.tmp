@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dprkm23cabjjn"]
+
+[ext_resource type="Texture2D" uid="uid://0rvibxl0sxvm" path="res://icon.svg" id="1_n8k3r"]
+[ext_resource type="Script" path="res://helicopter_body.gd" id="1_wokpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj5s1"]
+size = Vector2(128, 48)
+
+[node name="HelicopterBody" type="RigidBody2D"]
+collision_layer = 2
+gravity_scale = 0.5
+script = ExtResource("1_wokpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -8)
+scale = Vector2(1, 0.375)
+texture = ExtResource("1_n8k3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_oj5s1")
