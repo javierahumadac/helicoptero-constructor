@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0rvibxl0sxvm" path="res://icon.svg" id="2_atlgw"]
 [ext_resource type="PackedScene" uid="uid://cn6jdtq4on7yd" path="res://chain.tscn" id="3_p5tnw"]
 [ext_resource type="PackedScene" uid="uid://bqhkargbphpk" path="res://scenes/helicoptero/GrabbyL.tscn" id="4_453pv"]
-[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/helicoptero/GrabbyR.tscn" id="5_i7b1s"]
+[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/helicoptero/GrabbyR.tscn" id="5_6ux1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj5s1"]
 size = Vector2(128, 48)
@@ -25,48 +25,74 @@ shape = SubResource("RectangleShape2D_oj5s1")
 
 [node name="Chains" type="Node2D" parent="."]
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 16)
+[node name="PinJoint2" type="PinJoint2D" parent="Chains"]
+position = Vector2(0, 32)
 node_a = NodePath("../..")
 node_b = NodePath("../Chain")
-bias = 0.9
+bias = 0.014
 softness = 16.0
 
 [node name="Chain" parent="Chains" instance=ExtResource("3_p5tnw")]
-position = Vector2(0, 40)
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Chains"]
 position = Vector2(0, 64)
+gravity_scale = 1.0
+linear_damp = 1.5
+
+[node name="PinJoint3" type="PinJoint2D" parent="Chains"]
+position = Vector2(0, 96)
 node_a = NodePath("../Chain")
 node_b = NodePath("../Chain2")
-bias = 0.9
+bias = 0.014
+softness = 16.0
 
 [node name="Chain2" parent="Chains" instance=ExtResource("3_p5tnw")]
-position = Vector2(0, 88)
+position = Vector2(0, 128)
 
-[node name="PinJoint2D3" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 112)
+[node name="PinJoint4" type="PinJoint2D" parent="Chains"]
+position = Vector2(0, 160)
 node_a = NodePath("../Chain2")
 node_b = NodePath("../Chain3")
-bias = 0.9
+bias = 0.014
+softness = 16.0
 
 [node name="Chain3" parent="Chains" instance=ExtResource("3_p5tnw")]
-position = Vector2(0, 136)
+position = Vector2(0, 192)
 
-[node name="PinJoint2D4" type="PinJoint2D" parent="Chains"]
-position = Vector2(-16, 160)
+[node name="PinJoint5" type="PinJoint2D" parent="Chains"]
+position = Vector2(0, 224)
 node_a = NodePath("../Chain3")
-node_b = NodePath("../../GrabbyL")
-bias = 0.9
+node_b = NodePath("../Chain4")
+bias = 0.014
+softness = 16.0
 
-[node name="PinJoint2D5" type="PinJoint2D" parent="Chains"]
-position = Vector2(16, 160)
-node_a = NodePath("../Chain3")
-node_b = NodePath("../../GrabbyR")
+[node name="Chain4" parent="Chains" instance=ExtResource("3_p5tnw")]
+position = Vector2(0, 256)
+
+[node name="PinJointR" type="PinJoint2D" parent="."]
+position = Vector2(16, 288)
+node_a = NodePath("../Chains/Chain4")
+node_b = NodePath("../GrabbyR")
 bias = 0.9
+softness = 16.0
+angular_limit_enabled = true
+angular_limit_lower = 0.785398
+angular_limit_upper = -0.785398
+
+[node name="PinJointL" type="PinJoint2D" parent="."]
+position = Vector2(-16, 288)
+node_a = NodePath("../Chains/Chain4")
+node_b = NodePath("../GrabbyL")
+bias = 0.9
+softness = 16.0
+angular_limit_enabled = true
+angular_limit_lower = -0.785398
+angular_limit_upper = 0.785398
 
 [node name="GrabbyL" parent="." instance=ExtResource("4_453pv")]
-position = Vector2(-16, 160)
+position = Vector2(-16, 288)
+collision_layer = 4
+linear_damp = 0.0
 
-[node name="GrabbyR" parent="." instance=ExtResource("5_i7b1s")]
-position = Vector2(16, 160)
+[node name="GrabbyR" parent="." instance=ExtResource("5_6ux1g")]
+position = Vector2(16, 288)
+collision_layer = 4
+collision_mask = 5

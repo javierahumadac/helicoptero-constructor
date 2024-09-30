@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://0rvibxl0sxvm" path="res://icon.svg" id="1_8nlml"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_cys5y"]
-a = Vector2(0, -24)
-b = Vector2(0, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0uh3"]
+size = Vector2(16, 48)
 
 [node name="Chain" type="RigidBody2D"]
 collision_layer = 8
@@ -18,4 +17,4 @@ scale = Vector2(0.125, 0.375)
 texture = ExtResource("1_8nlml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_cys5y")
+shape = SubResource("RectangleShape2D_k0uh3")

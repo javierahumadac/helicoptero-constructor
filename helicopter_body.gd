@@ -52,5 +52,5 @@ func _integrate_forces(state):
 	apply_force(thrust)
 
 func _process(delta):
-	if Input.is_action_just_pressed("agarrar_caja-0"):
-		gancho.tratando_de_agarrar_caja = not gancho.tratando_de_agarrar_caja
+	pass #print("helicoptero", rotation)
+	
