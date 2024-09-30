@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5elg0eollymc"]
+
+[ext_resource type="Script" path="res://scenes/menus/menu juegos/GameSelect.gd" id="1_p8avp"]
+[ext_resource type="Texture2D" uid="uid://dy4au4vexq1xb" path="res://assets/endless.png" id="2_hf386"]
+[ext_resource type="Texture2D" uid="uid://dcptt2ghywcuh" path="res://assets/figuritas.png" id="3_xn1se"]
+
+[node name="GameSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8avp")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="Button" type="Button" parent="Panel"]
+offset_left = 48.0
+offset_top = 400.0
+offset_right = 528.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 70
+text = "Infinito"
+
+[node name="Button2" type="Button" parent="Panel"]
+offset_left = 640.0
+offset_top = 392.0
+offset_right = 1120.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 70
+text = "Figuritas"
+
+[node name="Endless" type="Sprite2D" parent="."]
+position = Vector2(288.188, 223.188)
+scale = Vector2(1.1882, 1.19563)
+texture = ExtResource("2_hf386")
+
+[node name="Figuritas" type="Sprite2D" parent="."]
+position = Vector2(864, 224)
+scale = Vector2(1.19403, 1.19403)
+texture = ExtResource("3_xn1se")
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]

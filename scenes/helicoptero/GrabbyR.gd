@@ -1,10 +1,13 @@
 extends RigidBody2D
 
+var agarrando_caja = false
 func _process(delta):
-	if Input.is_key_pressed(KEY_Z):
+	if Input.is_action_just_pressed("agarrar_caja-0"):
+		agarrando_caja = not agarrando_caja
+	if(agarrando_caja):
 		angular_velocity -= 1
 		angular_velocity = clamp(angular_velocity,0,-5)
-	if Input.is_key_pressed(KEY_X):
+	if(not agarrando_caja):
 		angular_velocity += 5
 		angular_velocity = clamp(angular_velocity,0,15)
 		

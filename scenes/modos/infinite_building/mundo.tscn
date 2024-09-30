@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cs60rlbsibn7i"]
 
-[ext_resource type="PackedScene" uid="uid://ca0rlgrx3lxl4" path="res://tower_zone.tscn" id="1_3ltmi"]
-[ext_resource type="Script" path="res://mundo.gd" id="1_br12v"]
+[ext_resource type="PackedScene" uid="uid://ca0rlgrx3lxl4" path="res://scenes/modos/infinite_building/tower_zone.tscn" id="1_3ltmi"]
+[ext_resource type="Script" path="res://scenes/modos/infinite_building/mundo.gd" id="1_br12v"]
 [ext_resource type="PackedScene" uid="uid://oa3urvdc3d4y" path="res://boxes/box1.tscn" id="3_c360v"]
 [ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="5_5y0yr"]
 
@@ -18,6 +18,29 @@ distance = 168.397
 [node name="Mundo" type="Node2D"]
 position = Vector2(456, -600)
 script = ExtResource("1_br12v")
+
+[node name="Vaina" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Vaina"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="Vaina"]
+offset_left = 35.0
+offset_top = 470.0
+offset_right = 390.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 59
+text = "De nuevo"
+
+[node name="Button2" type="Button" parent="Vaina"]
+offset_left = 733.0
+offset_top = 470.0
+offset_right = 1088.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 59
+text = "Menu"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -77,4 +100,6 @@ position = Vector2(24, 184)
 [node name="Camera2D" type="Camera2D" parent="HelicopterBody2"]
 zoom = Vector2(0.5, 0.5)
 
+[connection signal="pressed" from="Vaina/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Vaina/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="nueva_mejor_altura" from="Tower Zone" to="." method="_on_tower_zone_nueva_mejor_altura"]

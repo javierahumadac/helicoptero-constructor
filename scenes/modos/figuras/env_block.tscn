@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl3n5w0e2p10a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riwb4"]
+size = Vector2(76, 143)
+
+[node name="env_cross" type="RigidBody2D"]
+collision_layer = 67
+collision_mask = 83
+mass = 0.2
+center_of_mass_mode = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-29, -79)
+scale = Vector2(6.98813, 7.00464)
+color = Color(1, 0.282353, 0, 1)
+polygon = PackedVector2Array(9.58768, 0.999338, 9.58768, 21.4144, -1.2879, 21.4144, -1.2879, 0.999338)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_riwb4")

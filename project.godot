@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Helicoptero Constructor"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://scenes/menus/main menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://scenes/modos/figuras/Score.gd"
 
 [input]
 

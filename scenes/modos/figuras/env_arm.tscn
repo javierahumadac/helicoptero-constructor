@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c6maugua0ll51"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 65
+collision_mask = 81
+mass = 0.2
+center_of_mass_mode = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-945, -180)
+color = Color(1, 1, 0.298039, 1)
+polygon = PackedVector2Array(888, 238, 920, 238, 920, 198, 971, 198, 971, 238, 1002, 238, 1016, 198, 1002, 158, 888, 158, 874, 198)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-25, 58, -25, 18, 26, 18, 26, 58, 57, 58, 71, 18, 57, -22, -57, -22, -71, 18, -57, 58)

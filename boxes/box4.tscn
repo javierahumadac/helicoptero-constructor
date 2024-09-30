@@ -6,7 +6,7 @@
 [node name="Box" type="RigidBody2D" groups=["Caja"]]
 disable_mode = 2
 collision_layer = 4
-collision_mask = 5
+collision_mask = 21
 mass = 0.1
 center_of_mass_mode = 1
 center_of_mass = Vector2(64, 0)

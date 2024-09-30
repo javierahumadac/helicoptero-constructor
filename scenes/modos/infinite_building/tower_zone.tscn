@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ca0rlgrx3lxl4"]
 
-[ext_resource type="Script" path="res://tower_zone.gd" id="1_hnk2r"]
+[ext_resource type="Script" path="res://scenes/modos/infinite_building/tower_zone.gd" id="1_hnk2r"]
 [ext_resource type="Texture2D" uid="uid://be1lolhfqoiun" path="res://pixel.png" id="2_3k7q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxf5"]
