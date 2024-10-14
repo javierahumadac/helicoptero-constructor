@@ -13,19 +13,21 @@ grow_vertical = 2
 script = ExtResource("1_2atwc")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 656.0
 
 [node name="Victory" type="Sprite2D" parent="."]
-position = Vector2(580, 336)
-scale = Vector2(1.62731, 1.39263)
+position = Vector2(580, 466.625)
+scale = Vector2(1.62731, 1.94263)
 texture = ExtResource("2_ftvp7")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 904.0
-offset_top = 336.0
-offset_right = 1128.0
-offset_bottom = 440.0
+layout_mode = 0
+offset_left = 880.0
+offset_top = 496.0
+offset_right = 1104.0
+offset_bottom = 600.0
 theme_override_font_sizes/font_size = 70
 text = "Menu"
 

@@ -22,6 +22,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	Engine.physics_ticks_per_second = DisplayServer.screen_get_refresh_rate()
 	if Input.is_key_pressed(KEY_P):
 		vaina.show()
 

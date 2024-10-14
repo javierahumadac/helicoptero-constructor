@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbxwxskcmdxrw"]
+
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="1_64t4t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4uqmh"]
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_4uqmh")
+
+[node name="HelicopterBody" parent="." instance=ExtResource("1_64t4t")]
+position = Vector2(232, -384)
+
+[node name="Camera2D" type="Camera2D" parent="HelicopterBody"]
+zoom = Vector2(0.5, 0.5)
+limit_bottom = 16
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -66009.0
+offset_right = -64689.0
+offset_bottom = 40.0
+scale = Vector2(100, 1)
+color = Color(0, 0, 0, 1)

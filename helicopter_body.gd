@@ -3,9 +3,11 @@ extends RigidBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gancho = $Gancho
 
+@export var HORIZONTAL_FORCE = 1000
+
 var thrust_upward = Vector2.UP * 1000
-var thrust_right = Vector2.RIGHT * 1000
-var thrust_left = Vector2.LEFT * 1000
+var thrust_right = Vector2.RIGHT * 30000
+var thrust_left = Vector2.LEFT * 30000
 var thrust_down = Vector2.DOWN * 1000
 
 const MAX_ANGLE = 45.0
@@ -17,6 +19,9 @@ func _ready():
 	pass
 
 func _integrate_forces(state):
+	pass
+
+func _process(delta):
 	var thrust: Vector2
 	if Input.is_action_pressed("fly_up-0"):
 		thrust = thrust_upward
@@ -26,10 +31,10 @@ func _integrate_forces(state):
 		thrust = Vector2.ZERO
 	
 	if Input.is_action_pressed("right-0"):
-		thrust += thrust_right
+		thrust += thrust_right * delta
 		
 	elif Input.is_action_pressed("left-0"):
-		thrust += thrust_left
+		thrust += thrust_left * delta
 
 	# Obtener la velocidad lineal en el eje X
 	var velocity_x = linear_velocity.x
@@ -50,6 +55,3 @@ func _integrate_forces(state):
 	angular_velocity = clamp(angle_difference * 0.1, -MAX_ANGULAR_VELOCITY, MAX_ANGULAR_VELOCITY)
 	
 	apply_force(thrust)
-
-func _process(delta):
-	pass

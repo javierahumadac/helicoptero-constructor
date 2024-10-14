@@ -14,10 +14,12 @@ grow_vertical = 2
 script = ExtResource("1_p8avp")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 656.0
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 400.0
 offset_right = 528.0
@@ -26,6 +28,7 @@ theme_override_font_sizes/font_size = 70
 text = "Infinito"
 
 [node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 392.0
 offset_right = 1120.0

@@ -14,6 +14,7 @@ size = Vector2(128, 48)
 collision_layer = 2
 gravity_scale = 0.0
 script = ExtResource("1_bgid3")
+HORIZONTAL_FORCE = 30000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.90735e-06, -8)
