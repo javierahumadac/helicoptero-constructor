@@ -59,7 +59,8 @@ offset_left = 864.0
 offset_top = 448.0
 offset_right = 1071.0
 offset_bottom = 471.0
-text = "Hecho por Javier Ahumada"
+text = "Hecho por Javier Ahumada
+Todos los assets son propios"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

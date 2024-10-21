@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs60rlbsibn7i"]
+[gd_scene load_steps=10 format=3 uid="uid://cs60rlbsibn7i"]
 
 [ext_resource type="PackedScene" uid="uid://ca0rlgrx3lxl4" path="res://tower_zone.tscn" id="1_3ltmi"]
 [ext_resource type="Script" path="res://mundo.gd" id="1_br12v"]
 [ext_resource type="Texture2D" uid="uid://bdpbts541vq2s" path="res://assets/instrucciones.png" id="2_ggctr"]
+[ext_resource type="Script" path="res://finish.gd" id="2_jfxng"]
 [ext_resource type="PackedScene" uid="uid://oa3urvdc3d4y" path="res://boxes/box1.tscn" id="3_c360v"]
 [ext_resource type="PackedScene" uid="uid://dprkm23cabjjn" path="res://helicopter_body.tscn" id="8_0nf36"]
 
@@ -21,6 +22,7 @@ position = Vector2(456, -600)
 script = ExtResource("1_br12v")
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Score2" type="Label" parent="UI"]
 offset_left = 32.0
@@ -28,7 +30,7 @@ offset_right = 345.0
 offset_bottom = 96.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
-text = "WR: 25 m"
+text = "WR: 10 m"
 horizontal_alignment = 2
 
 [node name="Score" type="Label" parent="UI"]
@@ -39,6 +41,95 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "0 m"
 horizontal_alignment = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+process_mode = 3
+visible = false
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 1160.0
+offset_bottom = 640.0
+
+[node name="Label" type="Label" parent="UI/ColorRect2"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 200.0
+offset_right = 1096.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Pausa!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="UI/ColorRect2"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 328.0
+offset_right = 920.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 30
+text = "Continuar?"
+
+[node name="Button2" type="Button" parent="UI/ColorRect2"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 328.0
+offset_right = 400.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 30
+text = "Volver al menú"
+
+[node name="ColorRect" type="ColorRect" parent="UI" node_paths=PackedStringArray("mundo_pausa")]
+process_mode = 3
+visible = false
+offset_top = -24.0
+offset_right = 1160.0
+offset_bottom = 656.0
+script = ExtResource("2_jfxng")
+mundo_pausa = NodePath("../ColorRect2")
+
+[node name="Label" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 1056.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "FELICIDADES SUPERASTE 
+LLEGASTE A"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 328.0
+offset_right = 920.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 30
+text = "Continuar?"
+
+[node name="Button2" type="Button" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 328.0
+offset_right = 400.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 30
+text = "Volver al menú"
+
+[node name="SCORE" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 1080.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(1, 0, 0.854902, 1)
+theme_override_font_sizes/font_size = 60
+text = "10 m"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -456.0
@@ -81,4 +172,8 @@ position = Vector2(24, 184)
 [node name="Camera2D" type="Camera2D" parent="HelicopterBody"]
 zoom = Vector2(0.5, 0.5)
 
+[connection signal="pressed" from="UI/ColorRect2/Button" to="UI/ColorRect" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/ColorRect2/Button2" to="UI/ColorRect" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/ColorRect/Button" to="UI/ColorRect" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/ColorRect/Button2" to="UI/ColorRect" method="_on_button_2_pressed"]
 [connection signal="nueva_mejor_altura" from="Tower Zone" to="." method="_on_tower_zone_nueva_mejor_altura"]

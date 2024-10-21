@@ -20,15 +20,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed("pausa"):
+		$UI/ColorRect2.visible =true
+		get_tree().paused = true
 
-var world_record = 30.0
+var world_record = 10.0
+var continuar = true
 func _on_tower_zone_nueva_mejor_altura(altura):
-	score.text = str(-altura / 10) + " m"
+	var altura_formateada = -altura / 10
+	score.text = str(altura_formateada) + " m"
 	if(altura < 100):
 		var box = box_list.pick_random().instantiate()
 		box.global_position = spawner.global_position
 		box.rotate(randf_range(0.0, 6.2))
 		spawner.add_child(box)
-	if(altura >= world_record):
-		score.modulate = Color.RED
+	if(altura_formateada >= world_record):
+		$UI/Score2.text = str(altura_formateada) + " m"
+		if(continuar):
+			$UI/ColorRect.visible = true
+			$UI/ColorRect/SCORE.text = str(altura_formateada) + " m"
+			get_tree().paused = true
+			continuar = false
