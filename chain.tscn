@@ -1,20 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cn6jdtq4on7yd"]
 
-[ext_resource type="Texture2D" uid="uid://0rvibxl0sxvm" path="res://icon.svg" id="1_8nlml"]
+[ext_resource type="Texture2D" uid="uid://d08mtfvqphio" path="res://scenes/helicoptero/chain.png" id="1_7pkp7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofi1q"]
-size = Vector2(128, 16)
+size = Vector2(48, 8)
 
 [node name="Chain" type="RigidBody2D"]
 collision_layer = 8
 mass = 0.01
 gravity_scale = 0.5
+linear_damp = 46.744
+angular_damp = 9.02
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(2.38419e-07, 4.76837e-07)
-scale = Vector2(0.125, 0.375)
-texture = ExtResource("1_8nlml")
+texture = ExtResource("1_7pkp7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ofi1q")

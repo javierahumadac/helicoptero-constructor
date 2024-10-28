@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6gbenjc1iboy"]
+
+[ext_resource type="Texture2D" uid="uid://e8vlvpbo02gj" path="res://scenes/tools/brocha/brocha.png" id="1_3lei5"]
+[ext_resource type="Script" path="res://scenes/tools/brocha/brocha.gd" id="1_pob1y"]
+[ext_resource type="Texture2D" uid="uid://dyteahejcf4mm" path="res://scenes/tools/brocha/punta.png" id="3_slq4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsklm"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxyv"]
+size = Vector2(17, 8)
+
+[node name="Brocha" type="RigidBody2D"]
+script = ExtResource("1_pob1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_wsklm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lei5")
+
+[node name="PaintZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaintZone"]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_eqxyv")
+debug_color = Color(0.898569, 0.000179816, 0.768508, 0.42)
+
+[node name="Punta" type="Sprite2D" parent="."]
+texture = ExtResource("3_slq4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PaintZone" to="." method="_on_paint_zone_body_entered"]

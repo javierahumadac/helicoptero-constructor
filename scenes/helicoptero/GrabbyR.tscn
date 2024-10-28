@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxcx2x27t0utt"]
+[gd_scene load_steps=3 format=3 uid="uid://bxcx2x27t0utt"]
 
 [ext_resource type="Script" path="res://scenes/helicoptero/GrabbyR.gd" id="1_7kodl"]
+[ext_resource type="Texture2D" uid="uid://ddytt8lhbyul3" path="res://scenes/helicoptero/grabby.png" id="2_44i8c"]
 
 [node name="GrabbyR" type="RigidBody2D"]
 collision_layer = 7
@@ -14,10 +15,10 @@ script = ExtResource("1_7kodl")
 position = Vector2(18, 48)
 rotation = 3.14159
 scale = Vector2(3, 3)
-polygon = PackedVector2Array(0, 1, 6, 16, 0, 16, -6, 1, 0, -15, 5.66667, -15)
+polygon = PackedVector2Array(1.99997, 11, 5.99996, 15.6667, 4.99996, 16, 0.333306, 10.6667, 3.99999, 5.00001, 4.99999, 5.66668)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(17.8, 44.9)
+[node name="Grabby" type="Sprite2D" parent="."]
+position = Vector2(8, 16)
 rotation = 3.14159
-scale = Vector2(3, 3)
-polygon = PackedVector2Array(0, 0, 6, 15, 0, 15, -6, 0, 0, -16, 5.66667, -16)
+texture = ExtResource("2_44i8c")
+flip_h = true

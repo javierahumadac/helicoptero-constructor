@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyr6jt5p8wj6t"]
+
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="1_ky4je"]
+[ext_resource type="PackedScene" uid="uid://23brth60uaeq" path="res://boxes/square/square_body.tscn" id="2_majlu"]
+[ext_resource type="PackedScene" uid="uid://b458mtqn37xs2" path="res://boxes/circle/area_circle.tscn" id="3_y7eu3"]
+[ext_resource type="PackedScene" uid="uid://cxe6s7j85qqwy" path="res://boxes/circle/circle_body.tscn" id="4_fjudi"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="5_yd86v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axmci"]
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vuuej"]
+normal = Vector2(1, 0)
+distance = -456.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vfkfd"]
+normal = Vector2(-0.999985, -0.00555547)
+distance = 168.397
+
+[node name="TestCreateFigures" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -216)
+anchor_mode = 0
+zoom = Vector2(3, 3)
+
+[node name="Limits" type="StaticBody2D" parent="."]
+position = Vector2(1032, 656)
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits"]
+position = Vector2(-840, -664)
+shape = SubResource("WorldBoundaryShape2D_axmci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits"]
+position = Vector2(-576, -744)
+shape = SubResource("WorldBoundaryShape2D_vuuej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits"]
+position = Vector2(-480, -760)
+shape = SubResource("WorldBoundaryShape2D_vfkfd")
+
+[node name="area_square" parent="." instance=ExtResource("1_ky4je")]
+position = Vector2(192, -8)
+current_color = 1
+
+[node name="square_body" parent="." instance=ExtResource("2_majlu")]
+position = Vector2(200, -24)
+rotation = -1.09258
+current_color = 1
+
+[node name="square_body2" parent="." instance=ExtResource("2_majlu")]
+position = Vector2(184, -56)
+rotation = 0.438078
+current_color = 3
+
+[node name="area_square2" parent="." instance=ExtResource("1_ky4je")]
+position = Vector2(176, -8)
+current_color = 1
+
+[node name="area_square3" parent="." instance=ExtResource("1_ky4je")]
+position = Vector2(160, -8)
+current_color = 4
+
+[node name="area_circle" parent="." instance=ExtResource("3_y7eu3")]
+position = Vector2(176, -24)
+current_color = 4
+
+[node name="circle_body" parent="." instance=ExtResource("4_fjudi")]
+position = Vector2(176, -40)
+rotation = -1.31074
+current_color = 4
+
+[node name="HelicopterBody" parent="." instance=ExtResource("5_yd86v")]
+position = Vector2(256, -144)

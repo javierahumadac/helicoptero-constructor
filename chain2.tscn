@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4od83ihjy8qo"]
 
-[ext_resource type="Texture2D" uid="uid://0rvibxl0sxvm" path="res://icon.svg" id="1_4pem3"]
+[ext_resource type="Texture2D" uid="uid://d08mtfvqphio" path="res://scenes/helicoptero/chain.png" id="1_hsebg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cys5y"]
-a = Vector2(0, -24)
-b = Vector2(0, 24)
+a = Vector2(0, -9)
+b = Vector2(0, 7)
 
 [node name="Chain" type="RigidBody2D"]
 collision_layer = 8
@@ -12,10 +12,8 @@ mass = 0.01
 gravity_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(2.38419e-07, 4.76837e-07)
-scale = Vector2(0.125, 0.375)
-texture = ExtResource("1_4pem3")
+texture = ExtResource("1_hsebg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("SegmentShape2D_cys5y")
