@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ca0rlgrx3lxl4" path="res://scenes/modos/infinite_building/tower_zone.tscn" id="1_3ltmi"]
 [ext_resource type="Script" path="res://scenes/modos/infinite_building/mundo.gd" id="1_br12v"]
 [ext_resource type="PackedScene" uid="uid://oa3urvdc3d4y" path="res://boxes/box1.tscn" id="3_c360v"]
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="5_5y0yr"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="5_5y0yr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1cnwx"]
 

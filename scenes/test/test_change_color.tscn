@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx0ovwrs1uir7"]
+[gd_scene load_steps=10 format=3 uid="uid://cx0ovwrs1uir7"]
 
 [ext_resource type="PackedScene" uid="uid://23brth60uaeq" path="res://boxes/square/square_body.tscn" id="2_00o8e"]
 [ext_resource type="PackedScene" uid="uid://cxe6s7j85qqwy" path="res://boxes/circle/circle_body.tscn" id="4_pqr3j"]
 [ext_resource type="PackedScene" uid="uid://b6gbenjc1iboy" path="res://scenes/tools/brocha/brocha.tscn" id="4_rswpo"]
 [ext_resource type="PackedScene" uid="uid://ffgs2ysrnowl" path="res://scenes/tools/bucket/bucket.tscn" id="5_et7l2"]
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="5_ym3wk"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="5_ym3wk"]
+[ext_resource type="PackedScene" uid="uid://b6i6thwnnbo7u" path="res://boxes/triangle/triangle_body.tscn" id="6_onlil"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axmci"]
 distance = -8.0
@@ -46,7 +47,7 @@ rotation = -1.09258
 current_color = 1
 
 [node name="square_body2" parent="." instance=ExtResource("2_00o8e")]
-position = Vector2(152, -56)
+position = Vector2(98, -54)
 rotation = 0.438078
 current_color = 1
 
@@ -64,3 +65,6 @@ current_color = 3
 
 [node name="Brocha" parent="." instance=ExtResource("4_rswpo")]
 position = Vector2(192, -72)
+
+[node name="triangle_body" parent="." instance=ExtResource("6_onlil")]
+position = Vector2(317, -20)

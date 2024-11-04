@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cxcmjltebk1ml"]
 
-[ext_resource type="Script" path="res://helicopter_body.gd" id="1_bgid3"]
-[ext_resource type="Texture2D" uid="uid://ii65wwiwusff" path="res://scenes/helicoptero/trineo-coptero.png" id="2_s2egy"]
-[ext_resource type="PackedScene" uid="uid://b4od83ihjy8qo" path="res://chain2.tscn" id="3_fydv3"]
-[ext_resource type="PackedScene" uid="uid://cn6jdtq4on7yd" path="res://chain.tscn" id="3_p5tnw"]
-[ext_resource type="PackedScene" uid="uid://bqhkargbphpk" path="res://scenes/helicoptero/GrabbyL.tscn" id="4_453pv"]
-[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/helicoptero/GrabbyR.tscn" id="5_i7b1s"]
+[ext_resource type="Script" path="res://scenes/helicoptero/cuerpo/helicopter_body.gd" id="1_ug4l3"]
+[ext_resource type="Texture2D" uid="uid://ii65wwiwusff" path="res://scenes/helicoptero/cuerpo/trineo-coptero.png" id="2_3hmf4"]
+[ext_resource type="PackedScene" uid="uid://b4od83ihjy8qo" path="res://scenes/helicoptero/cadena/chain2.tscn" id="3_mp87v"]
+[ext_resource type="PackedScene" uid="uid://cn6jdtq4on7yd" path="res://scenes/helicoptero/cadena/chain.tscn" id="4_qpd25"]
+[ext_resource type="PackedScene" uid="uid://bqhkargbphpk" path="res://scenes/helicoptero/brazos/GrabbyL.tscn" id="5_hmu6c"]
+[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/helicoptero/brazos/GrabbyR.tscn" id="6_ejm3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj5s1"]
 size = Vector2(32, 16)
@@ -13,12 +13,12 @@ size = Vector2(32, 16)
 [node name="HelicopterBody" type="RigidBody2D"]
 collision_layer = 2
 gravity_scale = 0.0
-script = ExtResource("1_bgid3")
+script = ExtResource("1_ug4l3")
 HORIZONTAL_FORCE = 30000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.19209e-06, -2.38419e-07)
-texture = ExtResource("2_s2egy")
+texture = ExtResource("2_3hmf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oj5s1")
@@ -29,61 +29,56 @@ shape = SubResource("RectangleShape2D_oj5s1")
 position = Vector2(0, 8)
 node_a = NodePath("../..")
 node_b = NodePath("../Chain")
-bias = 0.9
-softness = 16.0
 
-[node name="Chain" parent="Chains" instance=ExtResource("3_fydv3")]
+[node name="Chain" parent="Chains" instance=ExtResource("3_mp87v")]
 position = Vector2(0, 16)
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Chains"]
 position = Vector2(0, 24)
 node_a = NodePath("../Chain")
 node_b = NodePath("../Chain2")
-bias = 0.9
 
-[node name="Chain2" parent="Chains" instance=ExtResource("3_fydv3")]
+[node name="Chain2" parent="Chains" instance=ExtResource("3_mp87v")]
 position = Vector2(0, 32)
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Chains"]
 position = Vector2(0, 40)
 node_a = NodePath("../Chain2")
 node_b = NodePath("../Chain3")
-bias = 0.9
 
-[node name="Chain3" parent="Chains" instance=ExtResource("3_fydv3")]
+[node name="Chain3" parent="Chains" instance=ExtResource("3_mp87v")]
 position = Vector2(0, 48)
 
 [node name="PinJoint2D6" type="PinJoint2D" parent="Chains"]
 position = Vector2(0, 56)
 node_a = NodePath("../Chain3")
 node_b = NodePath("../ChainGarra")
-bias = 0.9
 
-[node name="ChainGarra" parent="Chains" instance=ExtResource("3_p5tnw")]
+[node name="ChainGarra" parent="Chains" instance=ExtResource("4_qpd25")]
 position = Vector2(0, 64)
 collision_layer = 16
-collision_mask = 17
+collision_mask = 16
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="Chains"]
 position = Vector2(-8, 72)
 node_a = NodePath("../ChainGarra")
 node_b = NodePath("../../GrabbyL")
-bias = 0.9
 disable_collision = false
+softness = 3.01
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="Chains"]
 position = Vector2(8, 72)
 node_a = NodePath("../ChainGarra")
 node_b = NodePath("../../GrabbyR")
-bias = 0.9
 disable_collision = false
+softness = 2.91
 
-[node name="GrabbyL" parent="." instance=ExtResource("4_453pv")]
+[node name="GrabbyL" parent="." instance=ExtResource("5_hmu6c")]
 position = Vector2(-8, 72)
-collision_layer = 16
-collision_mask = 21
+collision_layer = 24
+collision_mask = 25
 
-[node name="GrabbyR" parent="." instance=ExtResource("5_i7b1s")]
+[node name="GrabbyR" parent="." instance=ExtResource("6_ejm3e")]
 position = Vector2(8, 72)
-collision_layer = 16
-collision_mask = 21
+collision_layer = 24
+collision_mask = 25

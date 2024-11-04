@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbxwxskcmdxrw"]
 
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="1_64t4t"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="1_64t4t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4uqmh"]
 

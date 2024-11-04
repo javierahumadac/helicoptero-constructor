@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fhtpxl10bw8o"]
 
 [ext_resource type="Script" path="res://boxes/box.gd" id="1_idc37"]
-[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://box.png" id="2_olyfy"]
+[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://viejo/box.png" id="2_olyfy"]
 
 [node name="Box" type="RigidBody2D" groups=["Caja"]]
 disable_mode = 2

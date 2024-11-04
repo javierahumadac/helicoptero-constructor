@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyr6jt5p8wj6t"]
+[gd_scene load_steps=11 format=3 uid="uid://dyr6jt5p8wj6t"]
 
 [ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="1_ky4je"]
 [ext_resource type="PackedScene" uid="uid://23brth60uaeq" path="res://boxes/square/square_body.tscn" id="2_majlu"]
 [ext_resource type="PackedScene" uid="uid://b458mtqn37xs2" path="res://boxes/circle/area_circle.tscn" id="3_y7eu3"]
 [ext_resource type="PackedScene" uid="uid://cxe6s7j85qqwy" path="res://boxes/circle/circle_body.tscn" id="4_fjudi"]
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="5_yd86v"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="5_yd86v"]
+[ext_resource type="PackedScene" uid="uid://b6i6thwnnbo7u" path="res://boxes/triangle/triangle_body.tscn" id="6_l37dw"]
+[ext_resource type="PackedScene" uid="uid://cfb33rilvjkbh" path="res://boxes/triangle/area_triangle.tscn" id="7_ujhll"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axmci"]
 distance = -8.0
@@ -45,13 +47,15 @@ position = Vector2(192, -8)
 current_color = 1
 
 [node name="square_body" parent="." instance=ExtResource("2_majlu")]
-position = Vector2(200, -24)
+position = Vector2(224, -23)
 rotation = -1.09258
+collision_layer = 1
 current_color = 1
 
 [node name="square_body2" parent="." instance=ExtResource("2_majlu")]
-position = Vector2(184, -56)
+position = Vector2(139, -65)
 rotation = 0.438078
+collision_layer = 8
 current_color = 3
 
 [node name="area_square2" parent="." instance=ExtResource("1_ky4je")]
@@ -67,9 +71,17 @@ position = Vector2(176, -24)
 current_color = 4
 
 [node name="circle_body" parent="." instance=ExtResource("4_fjudi")]
-position = Vector2(176, -40)
+position = Vector2(309, -47)
 rotation = -1.31074
+collision_layer = 8
 current_color = 4
 
 [node name="HelicopterBody" parent="." instance=ExtResource("5_yd86v")]
 position = Vector2(256, -144)
+collision_layer = 0
+
+[node name="triangle_body" parent="." instance=ExtResource("6_l37dw")]
+position = Vector2(75, -78)
+
+[node name="area_triangle" parent="." instance=ExtResource("7_ujhll")]
+position = Vector2(133, -9)

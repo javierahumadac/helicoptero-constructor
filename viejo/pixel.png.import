@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddytt8lhbyul3"
-path="res://.godot/imported/grabby.png-b1f7633ba23b94d7953397f103eb8c7b.ctex"
+uid="uid://be1lolhfqoiun"
+path="res://.godot/imported/pixel.png-8560d4480d7a0532437ec7aab7159be6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/helicoptero/grabby.png"
-dest_files=["res://.godot/imported/grabby.png-b1f7633ba23b94d7953397f103eb8c7b.ctex"]
+source_file="res://viejo/pixel.png"
+dest_files=["res://.godot/imported/pixel.png-8560d4480d7a0532437ec7aab7159be6.ctex"]
 
 [params]
 

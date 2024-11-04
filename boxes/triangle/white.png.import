@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d08mtfvqphio"
-path="res://.godot/imported/chain.png-d7e7c87079883db9440e0b242cbc3280.ctex"
+uid="uid://bdi3swl5hmbfv"
+path="res://.godot/imported/white.png-92387d23e8616b698e747920fed2c258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/helicoptero/chain.png"
-dest_files=["res://.godot/imported/chain.png-d7e7c87079883db9440e0b242cbc3280.ctex"]
+source_file="res://boxes/triangle/white.png"
+dest_files=["res://.godot/imported/white.png-92387d23e8616b698e747920fed2c258.ctex"]
 
 [params]
 

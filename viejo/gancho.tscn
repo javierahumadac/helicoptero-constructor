@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dapoeojmtqva3"]
 
-[ext_resource type="Script" path="res://nuevogancho.gd" id="1_qhxov"]
-[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://box.png" id="2_b2r8v"]
+[ext_resource type="Script" path="res://viejo/nuevogancho.gd" id="1_qhxov"]
+[ext_resource type="Texture2D" uid="uid://e1yetpx36p7k" path="res://viejo/box.png" id="2_b2r8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m36h3"]
 size = Vector2(64, 24)

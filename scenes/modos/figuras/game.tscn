@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ndrv8hymvque" path="res://scenes/modos/figuras/env_cross.tscn" id="3_tknvh"]
 [ext_resource type="PackedScene" uid="uid://drprdhfyla3si" path="res://scenes/modos/figuras/goal_check_in.tscn" id="4_nebgr"]
 [ext_resource type="PackedScene" uid="uid://c6maugua0ll51" path="res://scenes/modos/figuras/env_arm.tscn" id="6_ij33n"]
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/helicopter_body_2.tscn" id="7_m1tfm"]
+[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="7_m1tfm"]
 [ext_resource type="Script" path="res://scenes/modos/figuras/ScoreLabel.gd" id="7_o5m3v"]
 [ext_resource type="Script" path="res://scenes/modos/figuras/porcentajeUI.gd" id="8_2jhd5"]
 

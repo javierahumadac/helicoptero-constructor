@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6i6thwnnbo7u"]
+
+[ext_resource type="Script" path="res://boxes/box-body-template.gd" id="1_r6kgk"]
+[ext_resource type="Texture2D" uid="uid://bdi3swl5hmbfv" path="res://boxes/triangle/white.png" id="2_543kl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_884en"]
+radius = 2.0
+
+[node name="triangle_body" type="RigidBody2D" groups=["Box"]]
+disable_mode = 1
+collision_layer = 9
+collision_mask = 9
+mass = 0.03
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 2)
+script = ExtResource("1_r6kgk")
+type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_543kl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, -8, -2, -6, -2, -4, -7, 2, -6, 6, -6, 8, 6, 8, 6, 6, 7, 2, 2, -4, 2, -6, 3, -8)
+
+[node name="Center" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_884en")
+debug_color = Color(0.956724, 0, 0.536406, 0.42)

@@ -3,16 +3,17 @@ extends RigidBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gancho = $Gancho
 
-@export var HORIZONTAL_FORCE = 1000
+@export var HORIZONTAL_FORCE = 100
 
-var thrust_upward = Vector2.UP * 1000
+var thrust_upward = Vector2.UP * 750
 var thrust_right = Vector2.RIGHT * 30000
 var thrust_left = Vector2.LEFT * 30000
-var thrust_down = Vector2.DOWN * 1000
+var thrust_down = Vector2.DOWN * 750
 
 const MAX_ANGLE = 45.0
 const MAX_LINEAR_VELOCITY_X = 200.0  # Ajusta este valor según la velocidad máxima en X
-const MAX_ANGULAR_VELOCITY = 5.0  # Ajusta según la velocidad de giro deseada
+const MAX_LINEAR_VELOCITY_Y = 200.0  # Ajusta este valor según la velocidad máxima en Y
+const MAX_ANGULAR_VELOCITY = 6.0  # Ajusta según la velocidad de giro deseada
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,7 +39,7 @@ func _process(delta):
 
 	# Obtener la velocidad lineal en el eje X
 	var velocity_x = linear_velocity.x
-
+	var velocity_y = linear_velocity.y
 	# Obtener el ángulo actual del objeto en grados
 	var current_angle = rotation_degrees
 	
