@@ -19,9 +19,9 @@ offset_bottom = 656.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_top = 368.0
+offset_top = 276.0
 offset_right = 1152.0
-offset_bottom = 464.0
+offset_bottom = 372.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -34,31 +34,40 @@ uppercase = true
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 512.0
+offset_top = 374.0
 offset_right = 560.0
-offset_bottom = 624.0
+offset_bottom = 486.0
 theme_override_font_sizes/font_size = 70
 text = "JUGAR!"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 512.0
-offset_right = 1104.0
-offset_bottom = 624.0
+offset_left = 608.0
+offset_top = 374.0
+offset_right = 1088.0
+offset_bottom = 486.0
 theme_override_font_sizes/font_size = 70
 text = "Controles"
 
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 507.0
+offset_right = 819.0
+offset_bottom = 619.0
+theme_override_font_sizes/font_size = 70
+text = "Salir del juego"
+
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(592, 208)
+position = Vector2(592, 134)
 texture = ExtResource("2_dvdog")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 272.0
+offset_top = 154.0
 offset_right = 1100.0
-offset_bottom = 373.0
+offset_bottom = 255.0
 text = "Hecho por:
                                    Javier Ahumada
                                    José Alegría
@@ -66,3 +75,4 @@ text = "Hecho por:
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
