@@ -23,6 +23,16 @@ texture = ExtResource("2_3hmf4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oj5s1")
 
+[node name="GrabbyL" parent="." instance=ExtResource("5_hmu6c")]
+position = Vector2(-4, 29)
+collision_layer = 4
+collision_mask = 0
+
+[node name="GrabbyR" parent="." instance=ExtResource("6_ejm3e")]
+position = Vector2(4, 29)
+collision_layer = 4
+collision_mask = 0
+
 [node name="Chains" type="Node2D" parent="."]
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Chains"]
@@ -31,54 +41,38 @@ node_a = NodePath("../..")
 node_b = NodePath("../Chain")
 
 [node name="Chain" parent="Chains" instance=ExtResource("3_mp87v")]
-position = Vector2(0, 16)
+position = Vector2(0, 8)
+collision_layer = 4
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 24)
+position = Vector2(0, 16)
 node_a = NodePath("../Chain")
 node_b = NodePath("../Chain2")
 
 [node name="Chain2" parent="Chains" instance=ExtResource("3_mp87v")]
-position = Vector2(0, 32)
+position = Vector2(0, 16)
+collision_layer = 4
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 40)
+position = Vector2(0, 22)
 node_a = NodePath("../Chain2")
-node_b = NodePath("../Chain3")
-
-[node name="Chain3" parent="Chains" instance=ExtResource("3_mp87v")]
-position = Vector2(0, 48)
-
-[node name="PinJoint2D6" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 56)
-node_a = NodePath("../Chain3")
 node_b = NodePath("../ChainGarra")
 
 [node name="ChainGarra" parent="Chains" instance=ExtResource("4_qpd25")]
-position = Vector2(0, 64)
-collision_layer = 16
+position = Vector2(0, 22)
+collision_layer = 4
 collision_mask = 16
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="Chains"]
-position = Vector2(-8, 72)
+position = Vector2(-3, 29)
 node_a = NodePath("../ChainGarra")
 node_b = NodePath("../../GrabbyL")
 disable_collision = false
-softness = 3.01
+softness = 3.0
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="Chains"]
-position = Vector2(8, 72)
+position = Vector2(3, 29)
 node_a = NodePath("../ChainGarra")
 node_b = NodePath("../../GrabbyR")
 disable_collision = false
-softness = 2.91
-
-[node name="GrabbyL" parent="." instance=ExtResource("5_hmu6c")]
-position = Vector2(-8, 72)
-collision_layer = 24
-collision_mask = 25
-
-[node name="GrabbyR" parent="." instance=ExtResource("6_ejm3e")]
-position = Vector2(8, 72)
-collision_layer = 24
-collision_mask = 25
+softness = 3.0

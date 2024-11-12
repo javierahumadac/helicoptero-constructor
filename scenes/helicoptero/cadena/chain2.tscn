@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d08mtfvqphio" path="res://scenes/helicoptero/cadena/chain.png" id="1_qc84o"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cys5y"]
-a = Vector2(0, -9)
-b = Vector2(0, 7)
+a = Vector2(0, -8)
+b = Vector2(0, 0)
 
 [node name="Chain" type="RigidBody2D"]
 collision_layer = 8
@@ -12,8 +12,9 @@ mass = 0.01
 gravity_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
 texture = ExtResource("1_qc84o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 8)
 shape = SubResource("SegmentShape2D_cys5y")

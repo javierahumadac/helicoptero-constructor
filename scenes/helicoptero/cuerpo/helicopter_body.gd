@@ -5,10 +5,10 @@ extends RigidBody2D
 
 @export var HORIZONTAL_FORCE = 100
 
-var thrust_upward = Vector2.UP * 750
-var thrust_right = Vector2.RIGHT * 30000
-var thrust_left = Vector2.LEFT * 30000
-var thrust_down = Vector2.DOWN * 750
+var thrust_upward = Vector2.UP * 300
+var thrust_right = Vector2.RIGHT * 7000
+var thrust_left = Vector2.LEFT * 7000
+var thrust_down = Vector2.DOWN * 100
 
 const MAX_ANGLE = 45.0
 const MAX_LINEAR_VELOCITY_X = 200.0  # Ajusta este valor según la velocidad máxima en X
