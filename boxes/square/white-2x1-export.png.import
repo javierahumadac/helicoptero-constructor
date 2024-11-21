@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4f28pirmf18"
-path="res://.godot/imported/ItemSheet_LargeItems.png-f09ef0dd630d73e892d8ee5a74ede089.ctex"
+uid="uid://dxn7f1r1ni8r7"
+path="res://.godot/imported/white-2x1-export.png-9ad84bbf11b96f42a3a94ac9f52db1fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/modos/world/ItemSheet_LargeItems.png"
-dest_files=["res://.godot/imported/ItemSheet_LargeItems.png-f09ef0dd630d73e892d8ee5a74ede089.ctex"]
+source_file="res://boxes/square/white-2x1-export.png"
+dest_files=["res://.godot/imported/white-2x1-export.png-9ad84bbf11b96f42a3a94ac9f52db1fe.ctex"]
 
 [params]
 

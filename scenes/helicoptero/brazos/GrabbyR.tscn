@@ -1,23 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxcx2x27t0utt"]
+[gd_scene load_steps=5 format=3 uid="uid://bxcx2x27t0utt"]
 
 [ext_resource type="Script" path="res://scenes/helicoptero/brazos/GrabbyR.gd" id="1_dud0y"]
 [ext_resource type="Texture2D" uid="uid://ddytt8lhbyul3" path="res://scenes/helicoptero/brazos/grabby.png" id="2_vlmsb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmqc2"]
+radius = 1.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bapph"]
+radius = 2.0
+height = 8.0
+
 [node name="GrabbyR" type="RigidBody2D"]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 32
+collision_mask = 53
 mass = 0.05
-linear_damp = 1.5
+linear_damp = 2.0
 angular_damp = 1.5
 script = ExtResource("1_dud0y")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(18, 48)
-rotation = 3.14159
-scale = Vector2(3, 3)
-polygon = PackedVector2Array(1.99996, 15.3333, 5.99996, 15.3333, 5.99996, 16.6667, 0.666624, 16.6667, 0.666632, 13.6667, 1.99997, 13)
 
 [node name="Grabby" type="Sprite2D" parent="."]
 position = Vector2(14, 3)
 texture = ExtResource("2_vlmsb")
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pmqc2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(14, 5)
+shape = SubResource("CapsuleShape2D_bapph")

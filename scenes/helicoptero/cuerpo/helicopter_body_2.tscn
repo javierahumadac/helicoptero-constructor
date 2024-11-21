@@ -1,18 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxcmjltebk1ml"]
+[gd_scene load_steps=11 format=3 uid="uid://cxcmjltebk1ml"]
 
 [ext_resource type="Script" path="res://scenes/helicoptero/cuerpo/helicopter_body.gd" id="1_ug4l3"]
 [ext_resource type="Texture2D" uid="uid://ii65wwiwusff" path="res://scenes/helicoptero/cuerpo/trineo-coptero.png" id="2_3hmf4"]
-[ext_resource type="PackedScene" uid="uid://b4od83ihjy8qo" path="res://scenes/helicoptero/cadena/chain2.tscn" id="3_mp87v"]
-[ext_resource type="PackedScene" uid="uid://cn6jdtq4on7yd" path="res://scenes/helicoptero/cadena/chain.tscn" id="4_qpd25"]
-[ext_resource type="PackedScene" uid="uid://bqhkargbphpk" path="res://scenes/helicoptero/brazos/GrabbyL.tscn" id="5_hmu6c"]
-[ext_resource type="PackedScene" uid="uid://bxcx2x27t0utt" path="res://scenes/helicoptero/brazos/GrabbyR.tscn" id="6_ejm3e"]
+[ext_resource type="PackedScene" uid="uid://b4od83ihjy8qo" path="res://scenes/helicoptero/cadena/chain.tscn" id="4_qpd25"]
+[ext_resource type="Texture2D" uid="uid://ddytt8lhbyul3" path="res://scenes/helicoptero/brazos/grabby.png" id="5_7tohc"]
+[ext_resource type="PackedScene" uid="uid://cn6jdtq4on7yd" path="res://scenes/helicoptero/cadena/grabby-holder.tscn" id="6_3tcvi"]
+[ext_resource type="Texture2D" uid="uid://c5j2abdg3s3dr" path="res://boxes/square/white.png" id="6_e8yhf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj5s1"]
-size = Vector2(32, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1eje5"]
+radius = 5.5
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_klxpc"]
+radius = 2.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go2nw"]
+size = Vector2(4, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjpa6"]
+size = Vector2(4, 7)
 
 [node name="HelicopterBody" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 39
 gravity_scale = 0.0
+linear_damp = 1.0
 script = ExtResource("1_ug4l3")
 HORIZONTAL_FORCE = 30000
 
@@ -21,17 +34,9 @@ position = Vector2(-1.19209e-06, -2.38419e-07)
 texture = ExtResource("2_3hmf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_oj5s1")
-
-[node name="GrabbyL" parent="." instance=ExtResource("5_hmu6c")]
-position = Vector2(-4, 29)
-collision_layer = 4
-collision_mask = 0
-
-[node name="GrabbyR" parent="." instance=ExtResource("6_ejm3e")]
-position = Vector2(4, 29)
-collision_layer = 4
-collision_mask = 0
+position = Vector2(0, 1.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1eje5")
 
 [node name="Chains" type="Node2D" parent="."]
 
@@ -39,40 +44,123 @@ collision_mask = 0
 position = Vector2(0, 8)
 node_a = NodePath("../..")
 node_b = NodePath("../Chain")
+bias = 0.1
+disable_collision = false
 
-[node name="Chain" parent="Chains" instance=ExtResource("3_mp87v")]
+[node name="Chain" parent="Chains" instance=ExtResource("4_qpd25")]
 position = Vector2(0, 8)
-collision_layer = 4
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 16)
+position = Vector2(0, 17)
 node_a = NodePath("../Chain")
 node_b = NodePath("../Chain2")
+bias = 0.1
+disable_collision = false
 
-[node name="Chain2" parent="Chains" instance=ExtResource("3_mp87v")]
-position = Vector2(0, 16)
-collision_layer = 4
+[node name="Chain2" parent="Chains" instance=ExtResource("4_qpd25")]
+position = Vector2(0, 18)
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Chains"]
-position = Vector2(0, 22)
+position = Vector2(0, 27)
 node_a = NodePath("../Chain2")
-node_b = NodePath("../ChainGarra")
+node_b = NodePath("../Holder")
+bias = 0.1
+disable_collision = false
 
-[node name="ChainGarra" parent="Chains" instance=ExtResource("4_qpd25")]
-position = Vector2(0, 22)
-collision_layer = 4
-collision_mask = 16
+[node name="Holder" parent="Chains" instance=ExtResource("6_3tcvi")]
+position = Vector2(0, 29)
+mass = 0.08
 
-[node name="PinJoint2D4" type="PinJoint2D" parent="Chains"]
-position = Vector2(-3, 29)
-node_a = NodePath("../ChainGarra")
-node_b = NodePath("../../GrabbyL")
+[node name="Holder Left" type="PinJoint2D" parent="Chains/Holder"]
+position = Vector2(-5, 6)
+node_a = NodePath("..")
+node_b = NodePath("../../../PuntaSpring/Grabby Left")
 disable_collision = false
 softness = 3.0
 
-[node name="PinJoint2D5" type="PinJoint2D" parent="Chains"]
-position = Vector2(3, 29)
-node_a = NodePath("../ChainGarra")
-node_b = NodePath("../../GrabbyR")
+[node name="Holder Right" type="PinJoint2D" parent="Chains/Holder"]
+position = Vector2(5, 6)
+node_a = NodePath("..")
+node_b = NodePath("../../../PuntaSpring/Grabby Right")
 disable_collision = false
 softness = 3.0
+
+[node name="PuntaSpring" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-20, 45)
+rotation = -1.5708
+node_a = NodePath("Grabby Left/Punta Left")
+node_b = NodePath("Grabby Right/Punta Right")
+disable_collision = false
+length = 40.0
+rest_length = 5.0
+
+[node name="Grabby Right" type="RigidBody2D" parent="PuntaSpring"]
+position = Vector2(10, 25)
+rotation = 1.5708
+mass = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="PuntaSpring/Grabby Right"]
+position = Vector2(14, 3)
+texture = ExtResource("5_7tohc")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntaSpring/Grabby Right"]
+position = Vector2(9, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_klxpc")
+
+[node name="gr-pr" type="PinJoint2D" parent="PuntaSpring/Grabby Right"]
+position = Vector2(14, 2)
+node_a = NodePath("../Punta Right")
+node_b = NodePath("..")
+disable_collision = false
+
+[node name="Punta Right" type="RigidBody2D" parent="PuntaSpring/Grabby Right"]
+position = Vector2(14, 9)
+mass = 0.01
+
+[node name="Sprite2D" type="Sprite2D" parent="PuntaSpring/Grabby Right/Punta Right"]
+visible = false
+position = Vector2(1.12057e-05, -4.00001)
+rotation = -3.14159
+scale = Vector2(0.209542, 0.325419)
+texture = ExtResource("6_e8yhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntaSpring/Grabby Right/Punta Right"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_go2nw")
+
+[node name="Grabby Left" type="RigidBody2D" parent="PuntaSpring"]
+position = Vector2(10, 15)
+rotation = 1.5708
+mass = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="PuntaSpring/Grabby Left"]
+position = Vector2(-14, 3)
+texture = ExtResource("5_7tohc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntaSpring/Grabby Left"]
+position = Vector2(-9, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_klxpc")
+
+[node name="gl-pl" type="PinJoint2D" parent="PuntaSpring/Grabby Left"]
+position = Vector2(-14, 2)
+node_a = NodePath("..")
+node_b = NodePath("../Punta Left")
+disable_collision = false
+
+[node name="Punta Left" type="RigidBody2D" parent="PuntaSpring/Grabby Left"]
+position = Vector2(-14, 9)
+mass = 0.01
+
+[node name="Sprite2D" type="Sprite2D" parent="PuntaSpring/Grabby Left/Punta Left"]
+visible = false
+position = Vector2(1.12057e-05, -4.00001)
+rotation = -3.14159
+scale = Vector2(0.209542, 0.325419)
+texture = ExtResource("6_e8yhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntaSpring/Grabby Left/Punta Left"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_mjpa6")

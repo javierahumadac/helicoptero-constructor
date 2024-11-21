@@ -1,10 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv4lmgfrutyr0"]
+[gd_scene load_steps=19 format=3 uid="uid://bv4lmgfrutyr0"]
 
-[ext_resource type="Texture2D" uid="uid://bu4f28pirmf18" path="res://scenes/modos/world/ItemSheet_LargeItems.png" id="1_ukf8v"]
-[ext_resource type="Texture2D" uid="uid://c4v201w8amlr7" path="res://scenes/modos/world/TileSheet_Festive.png" id="2_svl5x"]
-[ext_resource type="Texture2D" uid="uid://dy0k1bc1t1h5j" path="res://scenes/modos/world/TileSheet_Snow.png" id="3_s15rv"]
-[ext_resource type="Texture2D" uid="uid://cwx0rmafgeklk" path="res://scenes/modos/world/Background.png" id="4_y0hiv"]
-[ext_resource type="PackedScene" uid="uid://cxcmjltebk1ml" path="res://scenes/helicoptero/cuerpo/helicopter_body_2.tscn" id="5_rxuvu"]
+[ext_resource type="Script" path="res://scenes/world/level0.gd" id="1_7kwdp"]
+[ext_resource type="Texture2D" uid="uid://bu4f28pirmf18" path="res://scenes/world/ItemSheet_LargeItems.png" id="1_ukf8v"]
+[ext_resource type="Texture2D" uid="uid://c4v201w8amlr7" path="res://scenes/world/TileSheet_Festive.png" id="2_svl5x"]
+[ext_resource type="Texture2D" uid="uid://dy0k1bc1t1h5j" path="res://scenes/world/TileSheet_Snow.png" id="3_s15rv"]
+[ext_resource type="Texture2D" uid="uid://cwx0rmafgeklk" path="res://scenes/world/Background.png" id="4_y0hiv"]
+[ext_resource type="PackedScene" uid="uid://bk7pqurduk8r5" path="res://scenes/dialog-system/dialog.tscn" id="6_5mhay"]
+[ext_resource type="PackedScene" uid="uid://cbofrjbchla2u" path="res://scenes/helicoptero/helicoptero-body-2.tscn" id="7_35ytv"]
+[ext_resource type="PackedScene" uid="uid://b6gbenjc1iboy" path="res://scenes/tools/brocha/brocha.tscn" id="8_bbmp4"]
+[ext_resource type="PackedScene" uid="uid://ffgs2ysrnowl" path="res://scenes/tools/bucket/bucket.tscn" id="9_ftjsp"]
+[ext_resource type="PackedScene" uid="uid://dl75h63op34xn" path="res://scenes/tools/builder/buider-boxes.tscn" id="10_kfrqa"]
+[ext_resource type="PackedScene" uid="uid://by6p4h51qgi0y" path="res://boxes/figures/figures.tscn" id="11_nxdyf"]
+[ext_resource type="PackedScene" uid="uid://s60vhwf5rakr" path="res://scenes/world/environment/dispenser/dispenser.tscn" id="12_6l3yq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oc0qr"]
 texture = ExtResource("1_ukf8v")
@@ -228,15 +235,18 @@ texture = ExtResource("2_svl5x")
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
@@ -317,6 +327,34 @@ texture = ExtResource("2_svl5x")
 6:4/0 = 0
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
+0:5/0 = 0
+0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:5/0/physics_layer_0/angular_velocity = 0.0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2, 8, -2, 8, 2, -8, 2)
+1:5/0 = 0
+1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:5/0/physics_layer_0/angular_velocity = 0.0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2, 8, -2, 8, 2, -8, 2)
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:5/0 = 0
+4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:5/0/physics_layer_0/angular_velocity = 0.0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2, 8, -2, 8, 2, -8, 2)
+5:5/0 = 0
+5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:5/0/physics_layer_0/angular_velocity = 0.0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2, 8, -2, 8, 2, -8, 2)
+6:5/0 = 0
+6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:5/0/physics_layer_0/angular_velocity = 0.0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2, 8, -2, 8, 2, -8, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h633g"]
 texture = ExtResource("3_s15rv")
@@ -643,7 +681,12 @@ sources/1 = SubResource("TileSetAtlasSource_osbeu")
 sources/2 = SubResource("TileSetAtlasSource_h633g")
 sources/3 = SubResource("TileSetAtlasSource_qc2yd")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsadx"]
+radius = 6.0
+
 [node name="Mundo" type="Node2D"]
+position = Vector2(-2, -5)
+script = ExtResource("1_7kwdp")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ntvx3")
@@ -653,13 +696,85 @@ layer_0/tile_data = PackedInt32Array(65536, 131075, 0, 65537, 131075, 0, 65538, 
 layer_1/name = "background"
 layer_1/tile_data = PackedInt32Array(262128, 65537, 1, 327664, 262145, 3, 393200, 262145, 4, 262129, 327681, 2, 393201, 327681, 4, 262130, 65537, 1, 327666, 393217, 3, 393202, 393217, 4, 0, 65538, 1, 1, 65538, 1, 2, 65538, 1, 3, 65538, 1, 4, 65538, 1, 5, 65538, 1, 6, 65538, 1, 7, 65538, 1, 8, 65538, 1, 9, 65538, 1, 10, 65538, 1, 11, 65538, 1, 12, 65538, 1, 13, 65538, 1, 14, 65538, 1, 15, 65538, 1, 16, 65538, 1, 17, 65538, 1, 18, 65538, 1, 19, 65538, 1, 20, 65538, 1, 21, 65538, 1, 22, 65538, 1, 23, 65538, 1)
 layer_2/name = "midground"
-layer_2/tile_data = PackedInt32Array(1245184, 393217, 2, 1245185, 262145, 0, 1245186, 262145, 0, 1245187, 262145, 0, 1638403, 131073, 3, 1245188, 262145, 0, 1245189, 262145, 0, 1245190, 262145, 0, 1245191, 262145, 0, 1245192, 262145, 0, 1245193, 262145, 0, 1638409, 65537, 3, 1245194, 262145, 0, 1245195, 262145, 0, 1245196, 262145, 0, 1245197, 327681, 0, 1245204, 393217, 0, 1245205, 393217, 0, 1245206, 393217, 0, 1245207, 131073, 0, 655362, 65537, 4, 655360, 65537, 4, 655361, 65537, 4, 655363, 131073, 4, 655364, 131073, 4, 655365, 131073, 4, 655366, 131073, 4, 655367, 131073, 4, 655368, 131073, 4, 655385, 131073, 4, 655386, 65537, 4, 655387, 65537, 4, 1310720, 65537, 1, 1310721, 65537, 1, 1310722, 65537, 1, 1310723, 65537, 1, 1310724, 65537, 1, 1310725, 65537, 1, 1310726, 65537, 1, 1310727, 65537, 1, 1310728, 65537, 1, 1310729, 65537, 1, 1310730, 65537, 1, 1310731, 65537, 1, 1310732, 65537, 1, 1310733, 65537, 1, 1310740, 65537, 1, 1310741, 65537, 1, 1310742, 65537, 1, 1310743, 65537, 1, 1310744, 65537, 1, 1310745, 65537, 1, 1310746, 65537, 1, 1310747, 65537, 1, 1310748, 65537, 1, 1310749, 65537, 1, 1310750, 65537, 1, 1310751, 65537, 1, 1310752, 65537, 1, 1310753, 65537, 1, 1310754, 65537, 1, 1310755, 65537, 1, 1245208, 65537, 0, 1245209, 65537, 0, 1245210, 65537, 0, 1245211, 65537, 0, 1245212, 65537, 0, 1245213, 65537, 0, 1245214, 65537, 0, 1245215, 65537, 0, 1245216, 65537, 0, 1245217, 65537, 0, 1179683, 262145, 1, 1245218, 131073, 0, 1245219, 262145, 2, 1179648, 393217, 1, 655395, 65537, 4, 655394, 65537, 4, 655393, 65537, 4, 655392, 65537, 4, 655391, 65537, 4, 655390, 65537, 4, 655383, 1, 4, 655384, 65537, 4, 655388, 131073, 4, 655389, 131073, 4, 655370, 131073, 4, 655369, 131073, 4, 655371, 196609, 4, 0, 65537, 2, 1, 65537, 2, 2, 65537, 2, 3, 65537, 2, 4, 65537, 2, 5, 65537, 2, 6, 65537, 2, 7, 65537, 2, 8, 65537, 2, 9, 65537, 2, 10, 65537, 2, 11, 65537, 2, 12, 65537, 2, 13, 65537, 2, 14, 65537, 2, 15, 65537, 2, 16, 65537, 2, 17, 65537, 2, 18, 65537, 2, 19, 65537, 2, 20, 65537, 2, 21, 65537, 2, 22, 65537, 2, 23, 65537, 2, 24, 65537, 2, 25, 65537, 2, 26, 65537, 2, 27, 65537, 2, 28, 65537, 2, 29, 65537, 2, 30, 65537, 2, 31, 65537, 2, 32, 65537, 2, 33, 65537, 2, 34, 65537, 2, 35, 65537, 2)
+layer_2/tile_data = PackedInt32Array(1245185, 65537, 1, 1245186, 262145, 0, 1245187, 262145, 0, 1638403, 131073, 3, 1245191, 262145, 0, 1245192, 262145, 0, 1245193, 262145, 0, 1638409, 65537, 3, 1245194, 262145, 0, 1245195, 262145, 0, 1245196, 262145, 0, 1245197, 327681, 0, 1245204, 393217, 0, 1245205, 393217, 0, 1245206, 393217, 0, 1245207, 131073, 0, 1310721, 65537, 1, 1310722, 65537, 1, 1310723, 65537, 1, 1310727, 65537, 1, 1310728, 65537, 1, 1310729, 65537, 1, 1310730, 65537, 1, 1310731, 65537, 1, 1310732, 65537, 1, 1310733, 65537, 1, 1310740, 65537, 1, 1310741, 65537, 1, 1310742, 65537, 1, 1310743, 65537, 1, 1310744, 65537, 1, 1310745, 65537, 1, 1310746, 65537, 1, 1310747, 65537, 1, 1310748, 65537, 1, 1310749, 65537, 1, 1310750, 65537, 1, 1310751, 65537, 1, 1310752, 65537, 1, 1310753, 65537, 1, 1310754, 65537, 1, 1310755, 65537, 1, 1245208, 65537, 0, 1245209, 65537, 0, 1245210, 65537, 0, 1245211, 65537, 0, 1245212, 65537, 0, 1245213, 65537, 0, 1245214, 65537, 0, 1245215, 65537, 0, 1245216, 65537, 0, 1245217, 65537, 0, 1179683, 65537, 1, 1245218, 65537, 1, 1245219, 65537, 1, 1, 65537, 2, 2, 65537, 2, 3, 65537, 2, 4, 65537, 2, 5, 65537, 2, 6, 65537, 2, 7, 65537, 2, 8, 65537, 2, 9, 65537, 2, 10, 65537, 2, 11, 65537, 2, 12, 65537, 2, 13, 65537, 2, 14, 65537, 2, 15, 65537, 2, 16, 65537, 2, 17, 65537, 2, 18, 65537, 2, 19, 65537, 2, 20, 65537, 2, 21, 65537, 2, 22, 65537, 2, 23, 65537, 2, 24, 65537, 2, 25, 65537, 2, 26, 65537, 2, 27, 65537, 2, 28, 65537, 2, 29, 65537, 2, 30, 65537, 2, 31, 65537, 2, 32, 65537, 2, 33, 65537, 2, 34, 65537, 2, 35, 65537, 1, 1245198, 262145, 0, 1245199, 327681, 0, 1245200, 327681, 0, 1245201, 327681, 0, 1245202, 393217, 0, 1245203, 393217, 0, 1310734, 65537, 1, 1310735, 65537, 1, 1310736, 65537, 1, 1310737, 65537, 1, 1310738, 65537, 1, 1310739, 65537, 1, 65536, 196609, 1, 131072, 196609, 1, 196608, 196609, 1, 262144, 196609, 1, 327680, 196609, 1, 393216, 196609, 1, 458752, 196609, 1, 524288, 196609, 1, 589824, 196609, 1, 1179648, 65537, 1, 1114112, 196609, 5, 851968, 196609, 1, 786432, 196609, 1, 720896, 65537, 1, 1245184, 65537, 1, 1310720, 65537, 1, 655360, 65537, 1, 0, 65537, 1, 65571, 1, 1, 131107, 1, 1, 196643, 1, 1, 262179, 1, 1, 327715, 1, 1, 393251, 1, 1, 458787, 1, 1, 524323, 1, 1, 786467, 65537, 1, 852003, 262145, 536870914, 917539, 1, 1, 983075, 1, 1, 1048611, 1, 1, 1114147, 1, 1, 1245188, 65537, 0, 1245189, 65537, 0, 1245190, 65537, 0, 1310724, 65537, 1, 1310725, 65537, 1, 1310726, 65537, 1, 720904, 131073, 4, 720903, 131073, 4, 720902, 131073, 4, 720901, 131073, 4, 720900, 131073, 4, 720899, 131073, 4, 720898, 131073, 4, 720897, 393217, 2, 720905, 131073, 4, 655361, 393217, 1, 1179649, 393217, 1, 1179682, 262145, 1, 720930, 262145, 1, 720931, 262145, 2, 786455, 1, 4, 786456, 65537, 4, 786457, 131073, 4, 786458, 65537, 4, 786459, 65537, 4, 786460, 131073, 4, 786461, 131073, 4, 786462, 65537, 4, 786463, 65537, 4, 786464, 65537, 4, 786465, 65537, 4, 786466, 262145, 2, 852002, 262145, 536870913, 589859, 1, 1, 655395, 1, 1, 720906, 196609, 4, 1114113, 262145, 5, 1114114, 393217, 5, 1114115, 393217, 5, 1114116, 327681, 5, 1048576, 196609, 5, 917504, 196609, 5, 983040, 196609, 1, 1048577, 262145, 5, 1048578, 327681, 5, 917505, 262145, 5, 917506, 327681, 5)
 layer_3/name = "frontground"
-layer_3/tile_data = PackedInt32Array(1179649, 1, 3, 1179651, 262144, 3, 1114116, 0, 3, 1179652, 0, 4, 1179653, 458752, 268435460, 1179679, 196608, 4, 1179680, 196608, 3, 1179681, 1, 3, 524288, 0, 3, 589824, 0, 4, 589825, 458752, 268435460, 589858, 262144, 4, 589859, 524288, 4)
+layer_3/tile_data = PackedInt32Array(1179679, 196608, 4, 1179680, 196608, 3, 1179681, 1, 3)
+
+[node name="boxes" type="Node2D" parent="."]
+
+[node name="Buider-boxes" parent="." node_paths=PackedStringArray("boxes_container") instance=ExtResource("10_kfrqa")]
+position = Vector2(95, 145)
+boxes_container = NodePath("../boxes")
+
+[node name="Buckets" type="Node" parent="."]
+
+[node name="Bucket" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(155, 291)
+
+[node name="Bucket2" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(88, 291)
+current_color = 2
+
+[node name="Bucket3" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(44, 249)
+current_color = 4
+
+[node name="Bucket4" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(62, 265)
+current_color = 3
+
+[node name="Bucket5" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(23, 218)
+
+[node name="Bucket6" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(24, 249)
+current_color = 3
+
+[node name="Bucket7" parent="Buckets" instance=ExtResource("9_ftjsp")]
+position = Vector2(122, 291)
+current_color = 1
+
+[node name="Brocha" parent="." instance=ExtResource("8_bbmp4")]
+position = Vector2(66, 244)
+current_color = 4
+
+[node name="Brocha2" parent="." instance=ExtResource("8_bbmp4")]
+position = Vector2(74, 297)
+current_color = 4
+
+[node name="Dispenser" parent="." node_paths=PackedStringArray("spawner", "boxes_container") instance=ExtResource("12_6l3yq")]
+position = Vector2(496, 16)
+spawner = NodePath("Spawner")
+boxes_container = NodePath("../boxes")
+
+[node name="Spawner" type="Area2D" parent="Dispenser"]
+position = Vector2(7, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser/Spawner"]
+position = Vector2(1, 50)
+shape = SubResource("CircleShape2D_wsadx")
+
+[node name="figures-scene" parent="." instance=ExtResource("11_nxdyf")]
+position = Vector2(249, 273)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(2, 2)
 
-[node name="HelicopterBody" parent="." instance=ExtResource("5_rxuvu")]
-position = Vector2(296, 176)
+[node name="dialog" parent="Camera2D" instance=ExtResource("6_5mhay")]
+visible = false
+offset_left = 56.0
+offset_top = 12.0
+offset_right = 56.0
+offset_bottom = 12.0
+
+[node name="Players" type="Node" parent="."]
+
+[node name="helicoptero-completo-1" parent="Players" instance=ExtResource("7_35ytv")]
+position = Vector2(381, 128)
+
+[node name="helicoptero-completo-2" parent="Players" instance=ExtResource("7_35ytv")]
+position = Vector2(443, 130)
+player_id = 1
+
+[connection signal="sendMessage" from="figures-scene" to="Camera2D/dialog" method="_on_figuresscene_send_message"]

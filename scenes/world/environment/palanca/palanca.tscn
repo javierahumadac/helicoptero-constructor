@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf3tevmx1sqp8"]
+
+[ext_resource type="Script" path="res://scenes/world/environment/palanca/palanca.gd" id="1_31n5v"]
+[ext_resource type="Texture2D" uid="uid://b03u8xkqmdqq0" path="res://scenes/world/environment/palanca/palanca.png" id="1_jek4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_756x3"]
+size = Vector2(5, 22)
+
+[node name="Palanca" type="Node2D"]
+script = ExtResource("1_31n5v")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../StaticBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.1
+gravity_scale = 0.1
+
+[node name="Palanca" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_jek4f")
+centered = false
+offset = Vector2(-8, -27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, -15)
+shape = SubResource("RectangleShape2D_756x3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]

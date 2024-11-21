@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfw03setcomfk"]
+
+[ext_resource type="Script" path="res://boxes/figures/figure-template.gd" id="1_tskc5"]
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="2_pp4ip"]
+
+[node name="futbol" type="Node2D"]
+script = ExtResource("1_tskc5")
+mensaje = "Hermoso, lograste hacer un... eh... hmmm... una increible y moderna pelota de futbol!"
+
+[node name="area_square3" parent="." instance=ExtResource("2_pp4ip")]
+position = Vector2(35, -9)

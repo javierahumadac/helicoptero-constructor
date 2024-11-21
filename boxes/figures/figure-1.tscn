@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://be3pch1xc23j3"]
+
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="1_k54te"]
+[ext_resource type="Script" path="res://boxes/figures/figure-template.gd" id="1_stu26"]
+
+[node name="Figure-1" type="Node2D"]
+script = ExtResource("1_stu26")
+mensaje = "Felicitaciones completaste el nivel 2!!"
+
+[node name="area_square4" parent="." instance=ExtResource("1_k54te")]
+position = Vector2(9, -41)
+
+[node name="area_square6" parent="." instance=ExtResource("1_k54te")]
+position = Vector2(9, -25)
+
+[node name="area_square7" parent="." instance=ExtResource("1_k54te")]
+position = Vector2(9, -9)

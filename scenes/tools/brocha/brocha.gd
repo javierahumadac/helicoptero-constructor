@@ -53,7 +53,19 @@ func set_color(color : String) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	match current_color:
+		ColorType.WHITE:
+			$Punta.modulate = Color.WHITE
+		ColorType.RED:
+			$Punta.modulate = Color.RED
+		ColorType.GREEN:
+			$Punta.modulate = Color.GREEN
+		ColorType.BLUE:
+			$Punta.modulate = Color.BLUE
+		ColorType.YELLOW:
+			$Punta.modulate = Color.YELLOW
+		_:
+			print("unknown")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

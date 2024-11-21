@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy0k1bc1t1h5j"
-path="res://.godot/imported/TileSheet_Snow.png-4ac82cbd1114d902649c3f0e164ba4ea.ctex"
+uid="uid://bu4f28pirmf18"
+path="res://.godot/imported/ItemSheet_LargeItems.png-a7e673bd2227f3f7ba0a7b1f70f0a154.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/modos/world/TileSheet_Snow.png"
-dest_files=["res://.godot/imported/TileSheet_Snow.png-4ac82cbd1114d902649c3f0e164ba4ea.ctex"]
+source_file="res://scenes/world/ItemSheet_LargeItems.png"
+dest_files=["res://.godot/imported/ItemSheet_LargeItems.png-a7e673bd2227f3f7ba0a7b1f70f0a154.ctex"]
 
 [params]
 

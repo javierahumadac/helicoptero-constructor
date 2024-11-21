@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl75h63op34xn"]
+
+[ext_resource type="Script" path="res://scenes/tools/builder/buider-boxes.gd" id="1_j77ng"]
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="2_4g7k3"]
+[ext_resource type="PackedScene" uid="uid://23brth60uaeq" path="res://boxes/square/square_body.tscn" id="2_k21hs"]
+[ext_resource type="PackedScene" uid="uid://bm0wiryjbjcar" path="res://scenes/world/environment/pressure-plate/pressure-plate.tscn" id="3_dvwft"]
+[ext_resource type="PackedScene" uid="uid://mbwxrkaqhodj" path="res://boxes/square/2x1square_body.tscn" id="3_uahdp"]
+[ext_resource type="PackedScene" uid="uid://426nhk8i7675" path="res://boxes/square/3x1square_body.tscn" id="4_ici8s"]
+[ext_resource type="Texture2D" uid="uid://bls60mg0e23nf" path="res://scenes/tools/builder/holder.png" id="4_qhy40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi65x"]
+size = Vector2(20, 17)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sjrj8"]
+radius = 1.99745
+height = 56.0296
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv07a"]
+size = Vector2(4, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aadfv"]
+size = Vector2(30, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wogc0"]
+size = Vector2(26, 7)
+
+[node name="Buider-boxes" type="Node2D"]
+script = ExtResource("1_j77ng")
+square_1x1_body_scene = ExtResource("2_k21hs")
+square_2x1_body_scene = ExtResource("3_uahdp")
+square_3x1_body_scene = ExtResource("4_ici8s")
+
+[node name="area_square" parent="." instance=ExtResource("2_4g7k3")]
+position = Vector2(0, -8)
+can_accept_any_color = true
+make_bodies_freeze = false
+
+[node name="area_square2" parent="." instance=ExtResource("2_4g7k3")]
+position = Vector2(0, -24)
+can_accept_any_color = true
+make_bodies_freeze = false
+
+[node name="area_square3" parent="." instance=ExtResource("2_4g7k3")]
+position = Vector2(0, -40)
+can_accept_any_color = true
+make_bodies_freeze = false
+
+[node name="Pressure-plate" parent="." instance=ExtResource("3_dvwft")]
+position = Vector2(-45, 31)
+
+[node name="Holder" type="Sprite2D" parent="."]
+position = Vector2(-24, -97)
+texture = ExtResource("4_qhy40")
+centered = false
+
+[node name="Delete Zone" type="Area2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Delete Zone"]
+position = Vector2(-1, 28.5)
+shape = SubResource("RectangleShape2D_gi65x")
+debug_color = Color(0.796213, 0.397904, 0.39914, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(13, -18)
+rotation = 0.0829236
+scale = Vector2(0.872944, 1.00653)
+shape = SubResource("CapsuleShape2D_sjrj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, -18)
+rotation = -0.050505
+shape = SubResource("CapsuleShape2D_sjrj8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15, 24)
+shape = SubResource("RectangleShape2D_yv07a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(28, 24)
+shape = SubResource("RectangleShape2D_aadfv")
+
+[node name="Stopper" type="StaticBody2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stopper"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_wogc0")
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(60, -14)
+
+[connection signal="body_entered" from="Pressure-plate" to="." method="_on_pressureplate_body_entered"]
+[connection signal="body_entered" from="Delete Zone" to="." method="_on_delete_zone_body_entered"]

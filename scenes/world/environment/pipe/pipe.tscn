@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg6oqyhegahm2"]
+
+[ext_resource type="Script" path="res://scenes/world/environment/pipe/pipe.gd" id="1_1ttxc"]
+[ext_resource type="Texture2D" uid="uid://bt44tdslhg00u" path="res://scenes/world/environment/pipe/pipe.png" id="2_0qgfg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84hxg"]
+texture = ExtResource("2_0qgfg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ckms5"]
+sources/0 = SubResource("TileSetAtlasSource_84hxg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nip5p"]
+size = Vector2(9, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lek4w"]
+size = Vector2(6, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr5eh"]
+size = Vector2(72, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvl4c"]
+size = Vector2(78, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obgg8"]
+size = Vector2(96, 155)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_1ttxc")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ckms5")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 0, 0, -2, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 131072, 0, 65533, 0, 1, 65534, 65536, 1, 65535, 65536, 1, 0, 65536, 1, 1, 65536, 1, 2, 131072, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(43.5, -13.5)
+shape = SubResource("RectangleShape2D_nip5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43.5, -13.5)
+shape = SubResource("RectangleShape2D_nip5p")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(42, 2.75)
+shape = SubResource("RectangleShape2D_lek4w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-42, 2.5)
+shape = SubResource("RectangleShape2D_lek4w")
+
+[node name="deleteZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deleteZone"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_lr5eh")
+debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
+
+[node name="Stopper" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stopper"]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_cvl4c")
+
+[node name="WakeUpZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WakeUpZone"]
+position = Vector2(0, -93.5)
+shape = SubResource("RectangleShape2D_obgg8")
+
+[connection signal="body_entered" from="deleteZone" to="." method="_on_delete_zone_body_entered"]

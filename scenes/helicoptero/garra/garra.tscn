@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://djmpyvmgfq2j8"]
+
+[ext_resource type="Texture2D" uid="uid://c00efusood2xs" path="res://scenes/helicoptero/cadena/base.png" id="1_kstkr"]
+[ext_resource type="Script" path="res://scenes/helicoptero/helicoptero-body-2.gd" id="1_xabxc"]
+[ext_resource type="Texture2D" uid="uid://ddytt8lhbyul3" path="res://scenes/helicoptero/brazos/grabby.png" id="2_vv56j"]
+[ext_resource type="Texture2D" uid="uid://c5j2abdg3s3dr" path="res://boxes/square/white.png" id="3_rvulr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o62v4"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj6m"]
+size = Vector2(4, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mgwo"]
+size = Vector2(4, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r6r5"]
+size = Vector2(4, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee85o"]
+size = Vector2(4, 7)
+
+[node name="Holder" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.1
+script = ExtResource("1_xabxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_kstkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_o62v4")
+
+[node name="holder-gl" type="PinJoint2D" parent="."]
+position = Vector2(-5, 5)
+node_a = NodePath("..")
+node_b = NodePath("../Grabby Left")
+disable_collision = false
+
+[node name="holder-gr" type="PinJoint2D" parent="."]
+position = Vector2(5, 5)
+node_a = NodePath("..")
+node_b = NodePath("../Grabby Right")
+disable_collision = false
+
+[node name="Grabby Left" type="RigidBody2D" parent="."]
+position = Vector2(-5, 5)
+mass = 0.05
+gravity_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Grabby Left"]
+position = Vector2(-14, 3)
+texture = ExtResource("2_vv56j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabby Left"]
+position = Vector2(-9, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ioj6m")
+
+[node name="gl-pl" type="PinJoint2D" parent="Grabby Left"]
+position = Vector2(-14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../Punta Left")
+disable_collision = false
+
+[node name="Punta Left" type="RigidBody2D" parent="Grabby Left"]
+position = Vector2(-14, 9)
+mass = 0.2
+gravity_scale = 0.1
+
+[node name="PuntaSpring" type="DampedSpringJoint2D" parent="Grabby Left/Punta Left"]
+rotation = -1.5708
+node_a = NodePath("..")
+node_b = NodePath("../../../Grabby Right/Punta Right")
+disable_collision = false
+length = 38.0
+rest_length = 5.0
+stiffness = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Grabby Left/Punta Left"]
+visible = false
+position = Vector2(1.12057e-05, -4.00001)
+rotation = -3.14159
+scale = Vector2(0.209542, 0.325419)
+texture = ExtResource("3_rvulr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabby Left/Punta Left"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_4mgwo")
+
+[node name="Grabby Right" type="RigidBody2D" parent="."]
+position = Vector2(5, 5)
+mass = 0.05
+gravity_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Grabby Right"]
+position = Vector2(14, 3)
+texture = ExtResource("2_vv56j")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabby Right"]
+position = Vector2(9, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8r6r5")
+
+[node name="gr-pr" type="PinJoint2D" parent="Grabby Right"]
+position = Vector2(14, 0)
+node_a = NodePath("../Punta Right")
+node_b = NodePath("..")
+disable_collision = false
+
+[node name="Punta Right" type="RigidBody2D" parent="Grabby Right"]
+position = Vector2(14, 9)
+mass = 0.2
+gravity_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Grabby Right/Punta Right"]
+visible = false
+position = Vector2(1.12057e-05, -4.00001)
+rotation = -3.14159
+scale = Vector2(0.209542, 0.325419)
+texture = ExtResource("3_rvulr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabby Right/Punta Right"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_ee85o")

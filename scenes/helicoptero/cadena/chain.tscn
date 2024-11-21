@@ -1,24 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn6jdtq4on7yd"]
+[gd_scene load_steps=3 format=3 uid="uid://b4od83ihjy8qo"]
 
-[ext_resource type="Texture2D" uid="uid://c00efusood2xs" path="res://scenes/helicoptero/cadena/base.png" id="1_fnbkp"]
+[ext_resource type="Texture2D" uid="uid://d08mtfvqphio" path="res://scenes/helicoptero/cadena/chain.png" id="1_m5h7h"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ub444"]
-a = Vector2(-15, -5.42998e-05)
-b = Vector2(7, 2.53399e-05)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7du"]
+radius = 2.0
+height = 8.0
 
 [node name="Chain" type="RigidBody2D"]
-collision_layer = 32
-collision_mask = 0
+collision_layer = 8
+collision_mask = 5
 mass = 0.01
 gravity_scale = 0.5
-linear_damp = 46.744
-angular_damp = 9.02
+linear_damp = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 10)
-texture = ExtResource("1_fnbkp")
+position = Vector2(0, 8)
+texture = ExtResource("1_m5h7h")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-rotation = -1.5708
-shape = SubResource("SegmentShape2D_ub444")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_xd7du")

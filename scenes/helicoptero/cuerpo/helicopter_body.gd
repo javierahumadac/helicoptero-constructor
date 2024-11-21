@@ -1,19 +1,25 @@
 extends RigidBody2D
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-@onready var gancho = $Gancho
-
 @export var HORIZONTAL_FORCE = 100
-
-var thrust_upward = Vector2.UP * 300
-var thrust_right = Vector2.RIGHT * 7000
-var thrust_left = Vector2.LEFT * 7000
-var thrust_down = Vector2.DOWN * 100
+@export var player_id : int = 0
+#var thrust_upward = Vector2.UP * 300
+#var thrust_right = Vector2.RIGHT * 7000
+#var thrust_left = Vector2.LEFT * 7000
+#var thrust_down = Vector2.DOWN * 100
 
 const MAX_ANGLE = 45.0
 const MAX_LINEAR_VELOCITY_X = 200.0  # Ajusta este valor según la velocidad máxima en X
 const MAX_LINEAR_VELOCITY_Y = 200.0  # Ajusta este valor según la velocidad máxima en Y
 const MAX_ANGULAR_VELOCITY = 6.0  # Ajusta según la velocidad de giro deseada
+
+
+var thrust_upward = Vector2.UP * 20000
+var thrust_right = Vector2.RIGHT * 7000
+var thrust_left = Vector2.LEFT * 7000
+var thrust_down = Vector2.DOWN * 10000
+
+var thrust_upward_base = Vector2.UP * 5000
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,17 +30,17 @@ func _integrate_forces(state):
 
 func _process(delta):
 	var thrust: Vector2
-	if Input.is_action_pressed("fly_up-0"):
-		thrust = thrust_upward
-	elif Input.is_action_pressed("fly_down-0"):
-		thrust = thrust_down
+	if Input.is_action_pressed("fly_up-" + str(player_id)):
+		thrust = thrust_upward * delta
+	elif Input.is_action_pressed("fly_down-" + str(player_id)):
+		thrust = thrust_down * delta
 	else:
-		thrust = Vector2.ZERO
+		thrust = thrust_upward_base * delta
 	
-	if Input.is_action_pressed("right-0"):
+	if Input.is_action_pressed("right-" + str(player_id)):
 		thrust += thrust_right * delta
 		
-	elif Input.is_action_pressed("left-0"):
+	elif Input.is_action_pressed("left-" + str(player_id)):
 		thrust += thrust_left * delta
 
 	# Obtener la velocidad lineal en el eje X

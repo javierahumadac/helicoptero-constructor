@@ -2,13 +2,12 @@ extends RigidBody2D
 
 var VELOCIDAD_MAXIMA_AGARRE = 35
 
-var agarrando_caja = false
+var agarrando_caja = true
 func _process(delta):
 	pass
-	#if Input.is_action_just_pressed("agarrar_caja-0"):
-		#agarrando_caja = not agarrando_caja
-	#if(agarrando_caja):
-		#angular_velocity = 20
-	#if(not agarrando_caja):
-		#angular_velocity = -20
-		
+	if Input.is_action_just_pressed("agarrar_caja-0"):
+		agarrando_caja = not agarrando_caja
+	if(agarrando_caja):
+		angular_velocity = 5
+	if(not agarrando_caja):
+		angular_velocity = -5

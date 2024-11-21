@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4v201w8amlr7"
-path="res://.godot/imported/TileSheet_Festive.png-0f6210aefafe0c664f8f7ead2a72c356.ctex"
+uid="uid://chdckrhwp6ke"
+path="res://.godot/imported/white-3x1-export.png-9bc0f983a198a660e18e0aeaa2b50861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/modos/world/TileSheet_Festive.png"
-dest_files=["res://.godot/imported/TileSheet_Festive.png-0f6210aefafe0c664f8f7ead2a72c356.ctex"]
+source_file="res://boxes/square/white-3x1-export.png"
+dest_files=["res://.godot/imported/white-3x1-export.png-9bc0f983a198a660e18e0aeaa2b50861.ctex"]
 
 [params]
 

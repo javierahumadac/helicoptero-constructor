@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://boxes/area_box.gd" id="1_v5xgk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g8rsn"]
-radius = 2.0
+radius = 3.0
 
-[node name="area_square" type="Area2D"]
+[node name="area_square" type="Area2D" groups=["Area Box"]]
 script = ExtResource("1_v5xgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

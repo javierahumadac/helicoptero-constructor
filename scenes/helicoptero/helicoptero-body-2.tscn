@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbofrjbchla2u"]
+
+[ext_resource type="Script" path="res://scenes/helicoptero/player-select.gd" id="1_6ydfh"]
+[ext_resource type="Texture2D" uid="uid://d08mtfvqphio" path="res://scenes/helicoptero/cadena/chain.png" id="1_542yr"]
+[ext_resource type="Script" path="res://scenes/helicoptero/cuerpo/helicopter_body.gd" id="2_hhewh"]
+[ext_resource type="PackedScene" uid="uid://dcdl25585yxx7" path="res://scenes/helicoptero/garra/magnet.tscn" id="4_anhgx"]
+[ext_resource type="Texture2D" uid="uid://ii65wwiwusff" path="res://scenes/helicoptero/cuerpo/trineo-coptero.png" id="6_uklnx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq5u7"]
+radius = 5.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7lk6"]
+radius = 2.0
+height = 8.0
+
+[node name="helicoptero-completo-1" type="Node2D"]
+position = Vector2(572, 302)
+script = ExtResource("1_6ydfh")
+
+[node name="Helicoptero??" type="RigidBody2D" parent="."]
+position = Vector2(0, -16)
+gravity_scale = 0.1
+linear_damp = 1.5
+script = ExtResource("2_hhewh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Helicoptero??"]
+position = Vector2(0, -8)
+texture = ExtResource("6_uklnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicoptero??"]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rq5u7")
+
+[node name="h-ch2" type="PinJoint2D" parent="Helicoptero??"]
+node_a = NodePath("../../Chain2")
+node_b = NodePath("..")
+softness = 0.1
+
+[node name="Chain2" type="RigidBody2D" parent="."]
+position = Vector2(0, -16)
+mass = 0.01
+gravity_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain2"]
+position = Vector2(0, 8)
+texture = ExtResource("1_542yr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain2"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_f7lk6")
+
+[node name="ch2-ch" type="PinJoint2D" parent="Chain2"]
+position = Vector2(0, 8)
+node_a = NodePath("..")
+node_b = NodePath("../../Chain")
+softness = 0.1
+
+[node name="Chain" type="RigidBody2D" parent="."]
+position = Vector2(0, -8)
+mass = 0.01
+gravity_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain"]
+position = Vector2(0, 8)
+texture = ExtResource("1_542yr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_f7lk6")
+
+[node name="chain-holder" type="PinJoint2D" parent="Chain"]
+position = Vector2(0, 8)
+node_a = NodePath("..")
+node_b = NodePath("../../Magnet")
+softness = 0.1
+
+[node name="Magnet" parent="." instance=ExtResource("4_anhgx")]

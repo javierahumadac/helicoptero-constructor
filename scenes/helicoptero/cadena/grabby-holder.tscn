@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn6jdtq4on7yd"]
+
+[ext_resource type="Texture2D" uid="uid://c00efusood2xs" path="res://scenes/helicoptero/cadena/base.png" id="1_w3jg5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bivcd"]
+radius = 1.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pie27"]
+size = Vector2(3, 6)
+
+[node name="Grabby-holder" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 5
+mass = 0.01
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_w3jg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bivcd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_pie27")

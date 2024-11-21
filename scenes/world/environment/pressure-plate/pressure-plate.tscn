@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0wiryjbjcar"]
+
+[ext_resource type="Texture2D" uid="uid://be8opp3e80f7b" path="res://scenes/world/environment/pressure-plate/pressure-plate.png" id="1_03x1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aetr"]
+size = Vector2(31, 5)
+
+[node name="Pressure-plate" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_1aetr")
+
+[node name="Pressure-plate" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_03x1o")
