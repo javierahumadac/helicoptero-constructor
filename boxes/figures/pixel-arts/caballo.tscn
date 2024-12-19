@@ -5,7 +5,7 @@
 
 [node name="Figure-1" type="Node2D"]
 script = ExtResource("1_nbjlr")
-mensaje = "Si entrecierras los ojos, esto perfectamente ser un perro rojo gigante, o un caballo color ferrari"
+mensaje = "Ah, perfecto, tenemos un…un… ¡Animal! (creo que es un caballo…)"
 
 [node name="area_square4" parent="." instance=ExtResource("2_j7wyr")]
 position = Vector2(25, -25)

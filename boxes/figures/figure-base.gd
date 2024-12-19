@@ -43,7 +43,15 @@ var failure_messages = [
 	"vaya... no pensé que se les haria tan dificil",
 	"a este paso... quizas lleguemos al año nuevo chino",
 	"hmm...",
-	"WOW que hermosa esta figura... que lastima que no era lo que pedimos"
+	"WOW que hermosa esta figura... que lastima que no era lo que pedimos",
+	"¡Uy!, estuvieron cerca, sigan así, le están tomando el ritmo.",
+	"Vaya, creo que se olvidaron que existen las brochas…",
+	"Hmm, bueno, supongo que sirvió para comprobar que tienen que completar TODA la figura…",
+	"Ok, con esto tengo claro que debemos reformular el sistema de capacitaciones…",
+	"Control de calidad nos va a contactar si seguimos así.",
+	"No se ofendan pero… quizás hace falta una visita al oculista.",
+	"Está bien, lo entiendo, pueeede haber un poco de explotación laboral en su caso, pero eso no lo tienen que pagar los niños del mundo con regalos como este…",
+	"Quizás me tendría que haber unido a la huelga…"
 ]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

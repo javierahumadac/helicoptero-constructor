@@ -5,7 +5,7 @@
 
 [node name="futbol" type="Node2D"]
 script = ExtResource("1_y4mnu")
-mensaje = "Hermoso, lograste hacer un... eh... hmmm... una increible y moderna pelota de futbol!"
+mensaje = "Bueno, viendo los regalos anteriores, no me sorprende mucho que alguien haya pedido un árbol, aunque sigo sin encontrarle sentido…"
 
 [node name="area_square" parent="." instance=ExtResource("2_wvg5r")]
 position = Vector2(32, -8)

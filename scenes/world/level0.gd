@@ -52,7 +52,7 @@ var historia_segunds = [
 		10
 	],[
 		9,
-		9,
+		5,
 		9,
 		9,
 		9
@@ -99,7 +99,7 @@ func _on_dialog_mensaje_finalizado():
 func preparar_para_next_dialog():
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 10.0
+	timer.wait_time = 8.0
 	timer.one_shot = true
 	timer.timeout.connect(func():
 		_on_dialog_mensaje_finalizado()
@@ -108,11 +108,11 @@ func preparar_para_next_dialog():
 	timer.start()
 func _on_figuresscene_nivel_completado(nivel):
 	print("NIVEL: " + str(nivel))
-	if(nivel == 1):
+	if(nivel == 1): # PINTURAS
 		preparar_para_next_dialog()
 		$Upgrade1Lock.free()
-	if(nivel == 2):
+	if(nivel == 3): # ARMADOR
 		preparar_para_next_dialog()
 		$Upgrade2Lock.free()
-	if(nivel == 3):
+	if(nivel == 10): # END GAME
 		preparar_para_next_dialog()

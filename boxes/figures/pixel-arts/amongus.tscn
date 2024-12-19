@@ -5,7 +5,7 @@
 
 [node name="Figure-0" type="Node2D"]
 script = ExtResource("1_ewb4x")
-mensaje = "Que hermoso una estrellita! al infinito y ma alla!"
+mensaje = "Vaya, ¡Buen trabajo! No voy a decir que es este regalo, no queremos agregar problemas de copyright a todo esto, ¿Verdad?"
 
 [node name="area_square7" parent="." instance=ExtResource("2_vws26")]
 position = Vector2(24, -24)

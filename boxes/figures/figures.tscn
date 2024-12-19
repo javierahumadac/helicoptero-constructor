@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://by6p4h51qgi0y"]
+[gd_scene load_steps=17 format=3 uid="uid://by6p4h51qgi0y"]
 
 [ext_resource type="Script" path="res://boxes/figures/figure-base.gd" id="1_c4l30"]
 [ext_resource type="PackedScene" uid="uid://cfw03setcomfk" path="res://boxes/figures/pixel-arts/pelota-futbol.tscn" id="2_4podr"]
 [ext_resource type="PackedScene" uid="uid://bg6oqyhegahm2" path="res://scenes/world/environment/pipe/pipe.tscn" id="3_0x6p6"]
 [ext_resource type="PackedScene" uid="uid://dlw8tgufrh02x" path="res://boxes/figures/pixel-arts/hombre-de-nieve.tscn" id="3_ba4k1"]
 [ext_resource type="PackedScene" uid="uid://cprck05boupwj" path="res://boxes/figures/pixel-arts/chile.tscn" id="4_37tlo"]
+[ext_resource type="PackedScene" uid="uid://curkap3mm07c5" path="res://boxes/figures/pixel-arts/heart.tscn" id="4_ms5e1"]
+[ext_resource type="PackedScene" uid="uid://c8tbd4e5n8dko" path="res://boxes/figures/pixel-arts/caracol.tscn" id="5_equku"]
 [ext_resource type="PackedScene" uid="uid://bf3tevmx1sqp8" path="res://scenes/world/environment/palanca/palanca.tscn" id="5_r060w"]
+[ext_resource type="PackedScene" uid="uid://bv4r0b4t6slw1" path="res://boxes/figures/pixel-arts/estrellita.tscn" id="6_frptr"]
+[ext_resource type="PackedScene" uid="uid://co7qjkvs0bobc" path="res://boxes/figures/pixel-arts/flor.tscn" id="8_aap7p"]
+[ext_resource type="PackedScene" uid="uid://c8d5a3g8tpctc" path="res://boxes/figures/pixel-arts/pesas.tscn" id="9_fgdc4"]
+[ext_resource type="PackedScene" uid="uid://bo0csy77fyfrb" path="res://boxes/figures/pixel-arts/dimadon.tscn" id="9_icuhm"]
+[ext_resource type="PackedScene" uid="uid://dl6j8qfmqbhhg" path="res://boxes/figures/pixel-arts/pino.tscn" id="10_7h68r"]
+[ext_resource type="PackedScene" uid="uid://dudhsr1nkth21" path="res://boxes/figures/pixel-arts/amongus.tscn" id="10_d22eu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv23m"]
 bg_color = Color(1, 1, 1, 1)
@@ -26,7 +34,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [node name="figures-scene" type="Node2D"]
 scale = Vector2(1, 1.00072)
 script = ExtResource("1_c4l30")
-Figuras = Array[PackedScene]([ExtResource("2_4podr"), ExtResource("3_ba4k1"), ExtResource("4_37tlo")])
+Figuras = Array[PackedScene]([ExtResource("2_4podr"), ExtResource("3_ba4k1"), ExtResource("5_equku"), ExtResource("4_37tlo"), ExtResource("6_frptr"), ExtResource("10_d22eu"), ExtResource("4_ms5e1"), ExtResource("9_fgdc4"), ExtResource("10_7h68r"), ExtResource("10_d22eu"), ExtResource("8_aap7p"), ExtResource("9_icuhm")])
 
 [node name="Pipe" parent="." instance=ExtResource("3_0x6p6")]
 z_index = 1

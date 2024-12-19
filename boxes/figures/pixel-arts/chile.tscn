@@ -5,7 +5,7 @@
 
 [node name="Figure-0" type="Node2D"]
 script = ExtResource("1_ndh2r")
-mensaje = "Miraaa una banderita chilena... que patriotico... pero ni asi clasifican"
+mensaje = "Ver esta bandera me llena de emoción, aunque, no se porque alguien pediría algo así para navidad…"
 
 [node name="area_square7" parent="." instance=ExtResource("2_m5oru")]
 position = Vector2(24, -8)

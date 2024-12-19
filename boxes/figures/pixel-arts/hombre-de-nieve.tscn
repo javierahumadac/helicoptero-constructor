@@ -5,7 +5,7 @@
 
 [node name="Hombre de nieve" type="Node2D"]
 script = ExtResource("1_n2nh5")
-mensaje = "Wow! Que increible, es eso lo que creo que es?? UN MUÑECO DE NIEVE!!!"
+mensaje = "Simple y al grano, ¡Perfecto para estas fiestas!"
 
 [node name="area_square7" parent="." instance=ExtResource("2_34cwc")]
 position = Vector2(25, -25)

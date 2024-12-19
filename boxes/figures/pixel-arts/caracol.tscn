@@ -5,7 +5,7 @@
 
 [node name="futbol" type="Node2D"]
 script = ExtResource("1_1581n")
-mensaje = "Ah!! Sisi... claramente esto es... un... CARACOL!!!"
+mensaje = "Esto es claramente un caracol, ¡No veo forma de confundirlo!"
 
 [node name="area_square3" parent="." instance=ExtResource("2_0tu7c")]
 position = Vector2(24, -8)
