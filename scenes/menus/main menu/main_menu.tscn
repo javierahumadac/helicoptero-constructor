@@ -12,94 +12,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x0eoe")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 656.0
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -2.853
-anchor_bottom = -2.853
-offset_left = 2.0
-offset_top = 2121.74
-offset_right = 1154.0
-offset_bottom = 2217.74
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 60
-text = "El helicoptero que construye
-"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 313.0
-offset_right = 573.0
-offset_bottom = 320.0
-color = Color(1, 0, 0, 1)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 213.0
-offset_top = 260.0
-offset_right = 504.0
-offset_bottom = 370.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0.6, 0, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 80
-text = "TRINEO
-"
-horizontal_alignment = 1
-uppercase = true
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1155.0
+offset_bottom = 650.0
+texture = ExtResource("2_dvdog")
+expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 374.0
-offset_right = 560.0
-offset_bottom = 486.0
-theme_override_font_sizes/font_size = 70
-text = "JUGAR!"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 608.0
-offset_top = 374.0
-offset_right = 1088.0
-offset_bottom = 486.0
-theme_override_font_sizes/font_size = 70
-text = "Controles"
-
-[node name="Button3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 512.0
-offset_right = 563.0
-offset_bottom = 624.0
-theme_override_font_sizes/font_size = 70
-text = "Salir del juego"
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 378.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 55
+text = "PLAY"
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 608.0
-offset_top = 512.0
-offset_right = 1091.0
-offset_bottom = 624.0
-theme_override_font_sizes/font_size = 70
+offset_left = 884.0
+offset_top = 576.0
+offset_right = 1143.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 30
 text = "Creditos"
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(624, 128)
-scale = Vector2(0.547735, 0.48741)
-texture = ExtResource("2_dvdog")
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

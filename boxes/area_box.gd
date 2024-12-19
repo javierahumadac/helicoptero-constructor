@@ -7,7 +7,6 @@ enum ShapeType {
 	TRIANGLE,
 	RECTANGLE
 }
-
 enum ColorType {
 	WHITE,
 	RED,
@@ -15,13 +14,11 @@ enum ColorType {
 	BLUE,
 	YELLOW,
 }
-
-
 @export var type: ShapeType = ShapeType.SQUARE
 @export var current_color: ColorType = ColorType.WHITE
 @export var can_accept_any_color : bool = false
 @export var make_bodies_freeze : bool = true
-# Getter para el tipo
+
 func get_type() -> String:
 	match type:
 		ShapeType.SQUARE:
@@ -35,7 +32,6 @@ func get_type() -> String:
 		_:
 			return "Unknown"
 
-# Getter para obtener el color actual
 func get_color() -> String:
 	match current_color:
 		ColorType.WHITE:
@@ -71,21 +67,19 @@ func set_color(new_color: ColorType) -> void:
 		_:
 			print("unknown")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 1.0  # 1 segundo
-	timer.one_shot = false    # Hacer que se repita (no sea de un solo disparo)
-	timer.autostart = true    # Comenzar automáticamente
+	timer.wait_time = 1.0
+	timer.one_shot = false
+	timer.autostart = true
 	timer.timeout.connect(_check_completed)
 	timer.start()
 	
 	set_color(current_color)
-	#area_entered.connect(_on_area_entered)
-	#area_exited.connect(_on_area_exited)
 
 var is_area_completed = false
+var original_modulate = Color.WHITE
 
 func _check_completed():
 	var area_completed = false
@@ -93,40 +87,24 @@ func _check_completed():
 		for area in get_overlapping_areas():
 			var body = area.get_parent()
 			if(body.is_in_group("Box")):
-				if(
-					body.get_type() == get_type() and body.get_color() == get_color()
-					or can_accept_any_color):
+				if(body.get_type() == get_type() and body.get_color() == get_color() or can_accept_any_color):
 					var entity_linear_velocity = snapped(body.linear_velocity, Vector2(0.1 , 0.1))
 					if (entity_linear_velocity == Vector2(0.0,0.0)):
 						area_completed = true
 						if(make_bodies_freeze):
 							body.set_deferred("freeze", true)
+						if original_modulate == Color.WHITE:
+							original_modulate = body.get_node("Sprite2D").modulate
+						body.modulate = Color(0.8, 0.8, 0.8)
 						break
+	
+	if not area_completed and is_area_completed:
+		for area in get_overlapping_areas():
+			var body = area.get_parent()
+			if(body.is_in_group("Box")):
+				body.modulate = original_modulate
+	
 	is_area_completed = area_completed
-#var body_in_area = null
-#func _on_area_entered(area):
-	#var body = area.get_parent()
-#
-	#if(body.is_in_group("Box")):
-		##print("COLOR:", body.get_color(), get_color())
-		##print("TYPE:", body.get_type(), get_type())
-		#if(body.get_type() == get_type() and body.get_color() == get_color()):
-			#body_in_area = body
-			##body.set_deferred("freeze", true)
-#
-#func _on_area_exited(area):
-	#var body = area.get_parent()
-#
-	#if(is_area_completed):
-		#print("Cuerpo salio al área: ", body)
-		#body_in_area = null
-		#is_area_completed = false
-#
-#var is_area_completed = false
-#signal area_completed
-#signal area_uncompleted
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	pass
-
-

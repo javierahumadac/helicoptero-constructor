@@ -35,12 +35,12 @@ func _check_completed():
 	progress.value = progress_value
 
 signal sendMessage(mensaje: String)
-
+signal nivelCompletado(nivel: int)
 
 var failure_messages = [
 	"?????",
 	"ah... bueno...",
-	"vaya... no pensé que iba a ser tan dificil",
+	"vaya... no pensé que se les haria tan dificil",
 	"a este paso... quizas lleguemos al año nuevo chino",
 	"hmm...",
 	"WOW que hermosa esta figura... que lastima que no era lo que pedimos"
@@ -51,6 +51,8 @@ func _process(delta):
 
 var nivel_completado = false
 var botando_cositas = false
+var nivel = 0
+
 func _on_palanca__on_lever_activated():
 	if not botando_cositas:
 		botando_cositas = true
@@ -58,12 +60,12 @@ func _on_palanca__on_lever_activated():
 		if(progress_value == 100):
 			print(figure.mensaje)
 			emit_signal("sendMessage", figure.mensaje)
+			emit_signal("nivelCompletado", nivel)
 			nivel_completado = true
 		else:
 			emit_signal("sendMessage", failure_messages.pick_random())
 		pipe.botar_cositas()
 
-var nivel = 0
 func _on_pipe__termino_de_botar_cositas():
 	if(nivel_completado):
 		figure.free()
