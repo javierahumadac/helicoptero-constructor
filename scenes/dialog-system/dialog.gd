@@ -10,9 +10,17 @@ func _ready():
 func _process(delta):
 	pass
 
+signal mensaje_finalizado
+
+func _on_new_mensaje_dialog(mensaje, seg):
+	$Mensaje.visible = true
+	$Mensaje.text = mensaje
+	await get_tree().create_timer(seg).timeout
+	$Mensaje.visible = false
+	mensaje_finalizado.emit()
 
 func _on_figuresscene_send_message(mensaje):
-	visible = true
+	$Mensaje.visible = true
 	$Mensaje.text = mensaje
-	await get_tree().create_timer(15).timeout
-	visible = false
+	await get_tree().create_timer(6).timeout
+	$Mensaje.visible = false

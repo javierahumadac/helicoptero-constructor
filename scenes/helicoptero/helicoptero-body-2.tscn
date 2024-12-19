@@ -18,22 +18,22 @@ height = 8.0
 position = Vector2(572, 302)
 script = ExtResource("1_6ydfh")
 
-[node name="Helicoptero??" type="RigidBody2D" parent="."]
+[node name="Helicoptero" type="RigidBody2D" parent="."]
 position = Vector2(0, -16)
 gravity_scale = 0.1
 linear_damp = 1.5
 script = ExtResource("2_hhewh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Helicoptero??"]
+[node name="Sprite2D" type="Sprite2D" parent="Helicoptero"]
 position = Vector2(0, -8)
 texture = ExtResource("6_uklnx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicoptero??"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicoptero"]
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rq5u7")
 
-[node name="h-ch2" type="PinJoint2D" parent="Helicoptero??"]
+[node name="h-ch2" type="PinJoint2D" parent="Helicoptero"]
 node_a = NodePath("../../Chain2")
 node_b = NodePath("..")
 softness = 0.1

@@ -28,6 +28,8 @@ func _ready():
 func _integrate_forces(state):
 	pass
 
+var direction = "left"
+
 func _process(delta):
 	var thrust: Vector2
 	if Input.is_action_pressed("fly_up-" + str(player_id)):
@@ -38,9 +40,15 @@ func _process(delta):
 		thrust = thrust_upward_base * delta
 	
 	if Input.is_action_pressed("right-" + str(player_id)):
+		if(direction == "left"):
+			direction = "right"
+			$Sprite2D.flip_h = true
 		thrust += thrust_right * delta
 		
 	elif Input.is_action_pressed("left-" + str(player_id)):
+		if(direction == "right"):
+			direction = "left"
+			$Sprite2D.flip_h = false
 		thrust += thrust_left * delta
 
 	# Obtener la velocidad lineal en el eje X

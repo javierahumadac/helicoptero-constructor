@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyteahejcf4mm" path="res://scenes/tools/brocha/punta.png" id="3_slq4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxyv"]
-size = Vector2(17, 8)
+size = Vector2(11, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8y86h"]
 radius = 5.0

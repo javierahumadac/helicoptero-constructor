@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8d5a3g8tpctc"]
+
+[ext_resource type="Script" path="res://boxes/figures/figure-template.gd" id="1_c7km7"]
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="2_mur4n"]
+
+[node name="futbol" type="Node2D"]
+script = ExtResource("1_c7km7")
+mensaje = "Hermoso, lograste hacer un... eh... hmmm... una increible y moderna pelota de futbol!"
+
+[node name="area_square" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(8, -24)
+current_color = 1
+
+[node name="area_square2" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(56, -24)
+current_color = 1
+
+[node name="area_square3" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(40, -24)
+current_color = 1
+
+[node name="area_square4" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(56, -8)
+current_color = 1
+
+[node name="area_square8" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(8, -40)
+current_color = 1
+
+[node name="area_square10" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(8, -8)
+current_color = 1
+
+[node name="area_square11" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(24, -24)
+current_color = 1
+
+[node name="area_square12" parent="." instance=ExtResource("2_mur4n")]
+position = Vector2(56, -40)
+current_color = 1

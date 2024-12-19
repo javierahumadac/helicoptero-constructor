@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo0csy77fyfrb"]
+
+[ext_resource type="Script" path="res://boxes/figures/figure-template.gd" id="1_m3cc4"]
+[ext_resource type="PackedScene" uid="uid://bitlqyuong53" path="res://boxes/square/area_square.tscn" id="2_0tepk"]
+
+[node name="Figure-0" type="Node2D"]
+script = ExtResource("1_m3cc4")
+mensaje = "Que hermoso una estrellita! al infinito y ma alla!"
+
+[node name="area_square" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(8, -8)
+make_bodies_freeze = false
+
+[node name="area_square2" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(56, -8)
+make_bodies_freeze = false
+
+[node name="area_square3" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -8)
+make_bodies_freeze = false
+
+[node name="area_square4" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -8)
+make_bodies_freeze = false
+
+[node name="area_square5" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -24)
+current_color = 4
+make_bodies_freeze = false
+
+[node name="area_square6" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -24)
+current_color = 4
+make_bodies_freeze = false
+
+[node name="area_square7" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -40)
+make_bodies_freeze = false
+
+[node name="area_square8" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -40)
+make_bodies_freeze = false
+
+[node name="area_square9" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -56)
+make_bodies_freeze = false
+
+[node name="area_square10" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -56)
+make_bodies_freeze = false
+
+[node name="area_square11" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -72)
+make_bodies_freeze = false
+
+[node name="area_square12" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -72)
+make_bodies_freeze = false
+
+[node name="area_square13" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -88)
+
+[node name="area_square14" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -88)
+make_bodies_freeze = false
+
+[node name="area_square15" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -104)
+make_bodies_freeze = false
+
+[node name="area_square16" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -104)
+make_bodies_freeze = false
+
+[node name="area_square17" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -120)
+make_bodies_freeze = false
+
+[node name="area_square18" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -120)
+
+[node name="area_square19" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(24, -136)
+make_bodies_freeze = false
+
+[node name="area_square20" parent="." instance=ExtResource("2_0tepk")]
+position = Vector2(40, -136)
+make_bodies_freeze = false

@@ -36,6 +36,15 @@ func _check_completed():
 
 signal sendMessage(mensaje: String)
 
+
+var failure_messages = [
+	"?????",
+	"ah... bueno...",
+	"vaya... no pensé que iba a ser tan dificil",
+	"a este paso... quizas lleguemos al año nuevo chino",
+	"hmm...",
+	"WOW que hermosa esta figura... que lastima que no era lo que pedimos"
+]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -50,8 +59,9 @@ func _on_palanca__on_lever_activated():
 			print(figure.mensaje)
 			emit_signal("sendMessage", figure.mensaje)
 			nivel_completado = true
+		else:
+			emit_signal("sendMessage", failure_messages.pick_random())
 		pipe.botar_cositas()
-
 
 var nivel = 0
 func _on_pipe__termino_de_botar_cositas():

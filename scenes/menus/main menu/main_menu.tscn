@@ -78,29 +78,28 @@ text = "Controles"
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 339.0
-offset_top = 507.0
-offset_right = 819.0
-offset_bottom = 619.0
+offset_left = 80.0
+offset_top = 512.0
+offset_right = 563.0
+offset_bottom = 624.0
 theme_override_font_sizes/font_size = 70
 text = "Salir del juego"
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(592, 134)
-texture = ExtResource("2_dvdog")
-
-[node name="Label2" type="Label" parent="."]
+[node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 741.0
-offset_top = 103.0
-offset_right = 1110.0
-offset_bottom = 255.0
-theme_override_font_sizes/font_size = 24
-text = "Hecho por:
-                                   Javier Ahumada
-                                   José Alegría
-                                   Santiago López"
+offset_left = 608.0
+offset_top = 512.0
+offset_right = 1091.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 70
+text = "Creditos"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(624, 128)
+scale = Vector2(0.547735, 0.48741)
+texture = ExtResource("2_dvdog")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

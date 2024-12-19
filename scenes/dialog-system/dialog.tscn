@@ -15,11 +15,13 @@ grow_vertical = 2
 script = ExtResource("1_kmf8w")
 
 [node name="Personaje" type="Sprite2D" parent="."]
-position = Vector2(114, 155)
+position = Vector2(114, 164)
 scale = Vector2(6.375, 6.375)
 texture = ExtResource("1_7evpr")
 
 [node name="Mensaje" type="Label" parent="."]
+visible = false
+z_index = 2
 layout_mode = 0
 offset_left = 168.0
 offset_top = 56.0

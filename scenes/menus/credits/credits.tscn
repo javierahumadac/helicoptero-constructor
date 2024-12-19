@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bge30jd5ac5ah"]
+
+[ext_resource type="Script" path="res://scenes/menus/credits/credits.gd" id="1_m8ybw"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8ybw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.853
+anchor_bottom = -2.853
+offset_top = 1872.74
+offset_right = 1152.0
+offset_bottom = 1968.74
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 60
+text = "Creditos
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 136.0
+offset_right = 1085.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 24
+text = "Desarrolladores
+                                                                                                          Javier Ahumada
+                                                                                                          José Alegría
+                                                                                                          Santiago López
+
+Música
+                                                                                                          Magic Christmas Night - Top Flow
+
+Arte
+                                                                                                          Jolly Holliday - Penzilla"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 528.0
+offset_right = 795.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 70
+text = "Volver"
+
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
